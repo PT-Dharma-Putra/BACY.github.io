@@ -1,0 +1,395 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    eyebrow: "Our Collaboration",
+    title: "Our Cooperation",
+    subtitle: "We are proud to partner with various leading healthcare institutions in Indonesia in delivering professional, hygienic, and sustainable linen solutions.",
+    stat1: "Hospital Partners",
+    stat2: "Cities in Indonesia",
+    stat3: "Years of Experience",
+    stat4: "Partner Satisfaction",
+    ctaText: "Interested in becoming a PT BACY partner?",
+    ctaBtn: "Contact Us"
+  },
+  id: {
+    eyebrow: "Kolaborasi Kami",
+    title: "Our Cooperation",
+    subtitle: "Kami bangga bermitra dengan berbagai institusi kesehatan terkemuka di Indonesia dalam menghadirkan solusi linen yang profesional, higienis, dan berkelanjutan.",
+    stat1: "Mitra Rumah Sakit",
+    stat2: "Kota di Indonesia",
+    stat3: "Tahun Pengalaman",
+    stat4: "Kepuasan Mitra",
+    ctaText: "Tertarik menjadi mitra PT BACY?",
+    ctaBtn: "Hubungi Kami"
+  }
+}[lang];
+---
+
+<section id="cooperation" class="coop-section">
+
+  <!-- Section Header -->
+  <div class="coop-header">
+    <span class="coop-eyebrow">{t.eyebrow}</span>
+    <h2 class="coop-title">{t.title}</h2>
+    <p class="coop-subtitle">
+      {t.subtitle}
+    </p>
+    <div class="coop-title-deco">
+      <span></span><span class="coop-deco-diamond">◆</span><span></span>
+    </div>
+  </div>
+
+  <!-- Cooperation Image Banner -->
+  <div class="coop-image-wrapper">
+    <div class="coop-image-inner">
+      <img
+        src="/images/COOPERATION.png"
+        alt="PT BACY Cooperation Partners"
+        class="coop-img"
+      />
+      <div class="coop-img-overlay-left"></div>
+      <div class="coop-img-overlay-right"></div>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="coop-stats">
+    <div class="coop-stat">
+      <span class="coop-stat-num">50<span class="coop-stat-plus">+</span></span>
+      <span class="coop-stat-label">{t.stat1}</span>
+    </div>
+    <div class="coop-stat-divider"></div>
+    <div class="coop-stat">
+      <span class="coop-stat-num">10<span class="coop-stat-plus">+</span></span>
+      <span class="coop-stat-label">{t.stat2}</span>
+    </div>
+    <div class="coop-stat-divider"></div>
+    <div class="coop-stat">
+      <span class="coop-stat-num">3<span class="coop-stat-plus">+</span></span>
+      <span class="coop-stat-label">{t.stat3}</span>
+    </div>
+    <div class="coop-stat-divider"></div>
+    <div class="coop-stat">
+      <span class="coop-stat-num">100<span class="coop-stat-plus">%</span></span>
+      <span class="coop-stat-label">{t.stat4}</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="coop-cta">
+    <p class="coop-cta-text">{t.ctaText}</p>
+    <a href="#contact" class="coop-cta-btn">
+      <span>{t.ctaBtn}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+
+</section>
+
+<style>
+  /* ─────────────────────────────────────────────
+     BASE
+  ───────────────────────────────────────────── */
+  .coop-section {
+    background: linear-gradient(180deg, #f0f7f3 0%, #ffffff 40%, #f0f7f3 100%);
+    padding: 5rem 0 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ─────────────────────────────────────────────
+     HEADER
+  ───────────────────────────────────────────── */
+  .coop-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+  }
+
+  .coop-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #0f6b3c;
+    background: #e6f4ee;
+    padding: 0.28rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  .coop-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #0d2818;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .coop-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+  }
+
+  .coop-title-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: #c3d9cb;
+  }
+
+  .coop-title-deco span:first-child,
+  .coop-title-deco span:last-child {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #a7c5b4);
+    display: block;
+  }
+
+  .coop-title-deco span:last-child {
+    background: linear-gradient(to left, transparent, #a7c5b4);
+  }
+
+  .coop-deco-diamond {
+    font-size: 0.55rem;
+    color: #0f6b3c;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     IMAGE BANNER
+  ───────────────────────────────────────────── */
+  .coop-image-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 0;
+    padding: 0 2rem;
+  }
+
+  .coop-image-inner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+      0 20px 60px rgba(15, 107, 60, 0.12),
+      0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid rgba(15, 107, 60, 0.15);
+  }
+
+  .coop-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .coop-image-inner:hover .coop-img {
+    transform: scale(1.02);
+  }
+
+  .coop-img-overlay-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(240, 247, 243, 0.6), transparent);
+    pointer-events: none;
+  }
+
+  .coop-img-overlay-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(240, 247, 243, 0.6), transparent);
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────────────────────
+     STATS
+  ───────────────────────────────────────────── */
+  .coop-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 900px;
+    margin: 3.5rem auto 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(15, 107, 60, 0.1);
+    border: 1px solid #d4e8db;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .coop-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    transition: background 0.2s ease;
+  }
+
+  .coop-stat:hover {
+    background: #f0f9f4;
+  }
+
+  .coop-stat-num {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #0f6b3c;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.03em;
+  }
+
+  .coop-stat-plus {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #5dd89c;
+  }
+
+  .coop-stat-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6b7280;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .coop-stat-divider {
+    width: 1px;
+    height: 3.5rem;
+    background: #d4e8db;
+    flex-shrink: 0;
+  }
+
+  /* ─────────────────────────────────────────────
+     CTA
+  ───────────────────────────────────────────── */
+  .coop-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem 2rem 4rem;
+    flex-wrap: wrap;
+  }
+
+  .coop-cta-text {
+    font-size: 1rem;
+    color: #475569;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .coop-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #0f6b3c 0%, #0a4c2a 100%);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 20px rgba(15, 107, 60, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  .coop-cta-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  .coop-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15, 107, 60, 0.4);
+    opacity: 0.95;
+  }
+
+  .coop-cta-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ─────────────────────────────────────────────
+     RESPONSIVE
+  ───────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .coop-section {
+      padding: 3.5rem 0 0;
+    }
+
+    .coop-image-wrapper {
+      padding: 0 1rem;
+    }
+
+    .coop-stats {
+      margin: 2.5rem 1.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .coop-stat-divider {
+      display: none;
+    }
+
+    .coop-stat {
+      padding: 1.5rem 0.5rem;
+    }
+
+    .coop-stat:nth-child(1) {
+      border-right: 1px solid #d4e8db;
+      border-bottom: 1px solid #d4e8db;
+    }
+    
+    .coop-stat:nth-child(3) {
+      border-bottom: 1px solid #d4e8db;
+    }
+    
+    .coop-stat:nth-child(5) {
+      border-right: 1px solid #d4e8db;
+    }
+
+    .coop-stat-num {
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .coop-stat-plus {
+      font-size: 1.1rem;
+    }
+    
+    .coop-stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+    }
+
+    .coop-cta {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+  }
+</style>

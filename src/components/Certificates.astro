@@ -1,0 +1,425 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    title: "Commitment to Quality",
+    subtitle: "We maintain the highest operational standards through continuous certification to provide safe, hygienic, and reliable linen management services.",
+    certs: [
+      {
+        title: "Linen Hygiene Test",
+        subtitle: "Linen Swab Test Report",
+        image: "/images/certificates/5.png",
+        description: "Microbiological test results on linen (ER Bed Sheet) showing a very low germ count, ensuring high safety and hygiene for patients."
+      },
+      {
+        title: "Clean Water Quality",
+        subtitle: "Groundwater Test Report",
+        image: "/images/certificates/3.png",
+        description: "Testing of groundwater sources by Labkesmas to ensure the water used in the laundry process is free from chemical and physical contaminants."
+      },
+      {
+        title: "Waste Management",
+        subtitle: "Liquid Waste Test (Outlet)",
+        image: "/images/certificates/1.png",
+        description: "Routine monitoring of liquid waste from WWTP (IPAL) to ensure all operational parameters are safe for the surrounding environment."
+      },
+      {
+        title: "Groundwater Standard",
+        subtitle: "Water Parameter Analysis",
+        image: "/images/certificates/4.png",
+        description: "Technical details of water parameter testing results for hygiene and sanitation purposes in accordance with Indonesian Ministry of Health Regulation No. 2 of 2023."
+      },
+      {
+        title: "WWTP Monitoring",
+        subtitle: "Liquid Waste Test (Inlet)",
+        image: "/images/certificates/2.png",
+        description: "Monitoring of wastewater quality before entering the treatment system to ensure the effectiveness of the liquid waste cleaning process."
+      }
+    ]
+  },
+  id: {
+    title: "Komitmen Terhadap Kualitas",
+    subtitle: "Kami menjaga standar operasional tertinggi melalui sertifikasi berkelanjutan untuk memberikan layanan pengelolaan linen yang aman, higienis, dan terpercaya.",
+    certs: [
+      {
+        title: "Uji Higienitas Linen",
+        subtitle: "Laporan Hasil Uji Usap Linen",
+        image: "/images/certificates/5.png",
+        description: "Hasil uji mikrobiologi pada linen (Sprei IGD) yang menunjukkan angka kuman sangat rendah, menjamin keamanan dan higienitas tinggi bagi pasien."
+      },
+      {
+        title: "Kualitas Air Bersih",
+        subtitle: "Laporan Hasil Uji Air Tanah",
+        image: "/images/certificates/3.png",
+        description: "Pengujian sumber air tanah oleh Labkesmas untuk memastikan air yang digunakan dalam proses laundry bebas dari kontaminan kimia dan fisika."
+      },
+      {
+        title: "Pengelolaan Limbah",
+        subtitle: "Uji Limbah Cair (Outlet)",
+        image: "/images/certificates/1.png",
+        description: "Pemantauan rutin limbah cair hasil olahan IPAL untuk memastikan seluruh parameter operasional aman bagi lingkungan sekitar."
+      },
+      {
+        title: "Standar Air Tanah",
+        subtitle: "Analisa Parameter Air",
+        image: "/images/certificates/4.png",
+        description: "Detail teknis hasil pengujian parameter air untuk keperluan higiene dan sanitasi sesuai dengan Permenkes RI No. 2 Tahun 2023."
+      },
+      {
+        title: "Monitoring IPAL",
+        subtitle: "Uji Limbah Cair (Inlet)",
+        image: "/images/certificates/2.png",
+        description: "Monitoring kualitas air limbah sebelum masuk ke sistem pengolahan untuk menjamin efektivitas proses pembersihan limbah cair."
+      }
+    ]
+  }
+}[lang];
+
+const certificates = t.certs;
+---
+
+<section 
+  id="certificates" 
+  class="py-24 bg-slate-50 overflow-hidden relative"
+  data-certificates={JSON.stringify(certificates)}
+>
+  <!-- Decorative Elements -->
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-primary mb-6">
+          {t.title}
+        </h2>
+        <p class="text-slate-600 text-lg leading-relaxed">
+          {t.subtitle}
+        </p>
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="flex gap-4">
+        <button 
+          id="cert-prev"
+          class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Previous certificate"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button 
+          id="cert-next"
+          class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Next certificate"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Embla Carousel -->
+    <div class="embla overflow-hidden cursor-grab active:cursor-grabbing" id="cert-carousel">
+      <div class="embla__container flex gap-6 lg:gap-8">
+        {certificates.map((cert, index) => (
+          <div class="embla__slide flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_31%] min-w-0">
+            <div 
+              class="cert-card group relative bg-white rounded-3xl p-8 border border-slate-100 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col cursor-zoom-in"
+              data-index={index}
+            >
+              <!-- Certificate Image -->
+              <div class="relative aspect-[3/4] mb-8 overflow-hidden rounded-2xl shadow-lg bg-white pointer-events-none">
+                <img 
+                  src={cert.image} 
+                  alt={cert.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"></div>
+              </div>
+
+              <!-- Content -->
+              <div class="space-y-3 flex-1 pointer-events-none">
+                <h3 class="font-display text-2xl font-bold text-primary">
+                  {cert.title}
+                </h3>
+                <p class="text-secondary font-semibold text-sm uppercase tracking-wider">
+                  {cert.subtitle}
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed pt-2">
+                  {cert.description}
+                </p>
+              </div>
+
+              <!-- Decorative Badge -->
+              <div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Overlay -->
+  <div 
+    id="cert-lightbox" 
+    class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-500 flex items-center justify-center p-4 md:p-8"
+  >
+    <!-- Close Button -->
+    <button 
+      id="lightbox-close"
+      class="absolute top-6 right-6 z-[110] text-white/50 hover:text-white transition-colors p-2"
+      aria-label="Close lightbox"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Navigation Buttons -->
+    <button 
+      id="lightbox-prev"
+      class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-[110] w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button 
+      id="lightbox-next"
+      class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-[110] w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Content Container -->
+    <div class="relative w-full h-full flex items-center justify-center">
+      <div id="lightbox-container" class="relative w-full h-full flex flex-col items-center justify-center gap-6 overflow-hidden">
+        <div class="relative w-full max-h-[80vh] flex items-center justify-center group cursor-zoom-in overflow-hidden" id="zoom-wrapper">
+          <img 
+            id="lightbox-img" 
+            src="" 
+            alt="" 
+            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-500 scale-95 opacity-0 origin-center"
+          />
+        </div>
+        
+        <!-- Info Overlay -->
+        <div id="lightbox-info" class="text-center text-white max-w-2xl px-4 transition-opacity duration-300">
+          <h4 id="lightbox-title" class="font-display text-2xl md:text-3xl font-bold mb-2"></h4>
+          <p id="lightbox-subtitle" class="text-primary font-bold text-sm uppercase tracking-widest"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .embla__container {
+    display: flex;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -apple-system-tap-highlight-color: transparent;
+  }
+
+  #cert-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #cert-lightbox.active #lightbox-img {
+    opacity: 1;
+    scale: 1;
+  }
+
+  /* Zoom Styles */
+  #zoom-wrapper.zoomed {
+    cursor: zoom-out;
+    max-height: none;
+    height: 100%;
+  }
+
+  #zoom-wrapper.zoomed #lightbox-img {
+    max-height: none;
+    max-width: none;
+    scale: 1.8;
+    cursor: zoom-out;
+  }
+
+  #cert-lightbox.zoomed-mode #lightbox-info,
+  #cert-lightbox.zoomed-mode #lightbox-prev,
+  #cert-lightbox.zoomed-mode #lightbox-next {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Prevent scrolling when lightbox is open */
+  :global(body.lightbox-open) {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import EmblaCarousel from 'embla-carousel'
+
+  const initCertificates = () => {
+    const section = document.querySelector('#certificates') as HTMLElement
+    if (!section) return
+
+    const certificates = JSON.parse(section.dataset.certificates || '[]')
+
+    // 1. Carousel Logic
+    const emblaNode = document.querySelector('#cert-carousel') as HTMLElement
+    const prevBtn = document.querySelector('#cert-prev') as HTMLButtonElement
+    const nextBtn = document.querySelector('#cert-next') as HTMLButtonElement
+
+    if (emblaNode && prevBtn && nextBtn) {
+      const emblaApi = EmblaCarousel(emblaNode, { 
+        align: 'start',
+        loop: false,
+        dragFree: true,
+        containScroll: 'trimSnaps'
+      })
+
+      const updateButtons = () => {
+        prevBtn.disabled = !emblaApi.canScrollPrev()
+        nextBtn.disabled = !emblaApi.canScrollNext()
+      }
+
+      prevBtn.addEventListener('click', () => emblaApi.scrollPrev())
+      nextBtn.addEventListener('click', () => emblaApi.scrollNext())
+
+      emblaApi.on('select', updateButtons)
+      emblaApi.on('init', updateButtons)
+      emblaApi.on('reInit', updateButtons)
+    }
+
+    // 2. Lightbox Logic
+    const lightbox = document.querySelector('#cert-lightbox') as HTMLElement
+    const lightboxImg = document.querySelector('#lightbox-img') as HTMLImageElement
+    const lightboxTitle = document.querySelector('#lightbox-title') as HTMLElement
+    const lightboxSubtitle = document.querySelector('#lightbox-subtitle') as HTMLElement
+    const lightboxClose = document.querySelector('#lightbox-close') as HTMLElement
+    const lightboxPrev = document.querySelector('#lightbox-prev') as HTMLElement
+    const lightboxNext = document.querySelector('#lightbox-next') as HTMLElement
+    const zoomWrapper = document.querySelector('#zoom-wrapper') as HTMLElement
+    const cards = document.querySelectorAll('.cert-card')
+
+    if (!lightbox || !lightboxImg || !zoomWrapper) return
+
+    let currentIndex = 0
+    let isZoomed = false
+
+    const updateLightbox = (index: number) => {
+      currentIndex = index
+      const cert = certificates[currentIndex]
+      
+      resetZoom()
+      
+      lightboxImg.style.opacity = '0'
+      lightboxImg.style.transform = 'translate(0,0) scale(0.95)'
+      
+      setTimeout(() => {
+        lightboxImg.src = cert.image
+        lightboxImg.alt = cert.title
+        lightboxTitle.textContent = cert.title
+        lightboxSubtitle.textContent = cert.subtitle
+        lightboxImg.style.opacity = '1'
+        lightboxImg.style.transform = 'translate(0,0) scale(1)'
+      }, 200)
+    }
+
+    const resetZoom = () => {
+      isZoomed = false
+      zoomWrapper.classList.remove('zoomed')
+      lightbox.classList.remove('zoomed-mode')
+      lightboxImg.style.transform = 'translate(0,0)'
+    }
+
+    const toggleZoom = (e: MouseEvent) => {
+      isZoomed = !isZoomed
+      if (isZoomed) {
+        zoomWrapper.classList.add('zoomed')
+        lightbox.classList.add('zoomed-mode')
+        handleMouseMove(e) // Initial position
+      } else {
+        resetZoom()
+      }
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isZoomed) return
+
+      const { left, top, width, height } = zoomWrapper.getBoundingClientRect()
+      const x = (e.clientX - left) / width
+      const y = (e.clientY - top) / height
+
+      // Move the image in opposite direction of mouse
+      const moveX = (0.5 - x) * 100
+      const moveY = (0.5 - y) * 100
+
+      lightboxImg.style.transform = `translate(${moveX}%, ${moveY}%) scale(1.8)`
+    }
+
+    const openLightbox = (index: number) => {
+      updateLightbox(index)
+      lightbox.classList.add('active')
+      document.body.classList.add('lightbox-open')
+    }
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active')
+      document.body.classList.remove('lightbox-open')
+      resetZoom()
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const index = parseInt(card.getAttribute('data-index') || '0')
+        openLightbox(index)
+      })
+    })
+
+    zoomWrapper.addEventListener('click', toggleZoom)
+    zoomWrapper.addEventListener('mousemove', handleMouseMove)
+
+    lightboxClose?.addEventListener('click', closeLightbox)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === document.querySelector('#lightbox-container')) {
+        closeLightbox()
+      }
+    })
+
+    lightboxPrev?.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const newIndex = (currentIndex - 1 + certificates.length) % certificates.length
+      updateLightbox(newIndex)
+    })
+
+    lightboxNext?.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const newIndex = (currentIndex + 1) % certificates.length
+      updateLightbox(newIndex)
+    })
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === 'ArrowLeft' && !isZoomed) lightboxPrev?.click()
+      if (e.key === 'ArrowRight' && !isZoomed) lightboxNext?.click()
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', initCertificates)
+  document.addEventListener('astro:page-load', initCertificates)
+</script>

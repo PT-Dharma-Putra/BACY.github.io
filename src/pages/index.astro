@@ -2,31 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
+import CertificateDivider from "../components/CertificateDivider.astro";
 import About from "../components/About.astro";
-import CompanyVideo from "../components/CompanyVideo.astro";
 import VisionMission from "../components/VisionMission.astro";
-import ProductShowcase from "../components/ProductShowcase.astro";
-import WorkProcess from "../components/WorkProcess.astro";
-import WhyTrust from "../components/WhyTrust.astro";
-import Services from "../components/Services.astro";
-import Subsidiaries from "../components/Subsidiaries.astro";
-import Client from "../components/Client.astro";
-import ContactCTA from "../components/ContactCTA.astro";
+import LMS from "../components/LMS.astro";
+import TechnologySupport from "../components/TechnologySupport.astro";
+import OutsideLaundryBenefits from "../components/OutsideLaundryBenefits.astro";
+import ServicesList from "../components/ServicesList.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Certificates from "../components/Certificates.astro";
+import Cooperation from "../components/Cooperation.astro";
+import RFIDSystem from "../components/RFIDSystem.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Abhijati Sahar Dharma | Interior Design & Build">
+<Layout
+  title="PT. BACY (PT. Bersih Aman Cemerlang Yogya) | Healthcare Linen & Laundry Management Solution"
+>
   <Navbar />
   <main>
     <Hero />
     <About />
     <VisionMission />
-    <Services />
-    <WorkProcess />
-    <ProductShowcase />
-    <WhyTrust />
-    <Client />
-    <ContactCTA />
+    <Cooperation />
+    <RFIDSystem />
+    <LMS />
+    <TechnologySupport />
+    <OutsideLaundryBenefits />
+    <ServicesList />
+    <Testimonials />
+    <CertificateDivider />
+    <Certificates />
   </main>
   <Footer />
 </Layout>

@@ -1,105 +1,118 @@
-<section id="about" class="py-24 bg-slate-50 overflow-hidden relative">
-  <!-- Decorative Elements -->
-  <div
-    class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"
-  >
-  </div>
-  <div
-    class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"
-  >
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    eyebrow: "About Us",
+    titleHtml: "Dedicated to Patient <span class='text-primary italic'>Hygiene</span> and <span class='text-primary italic'>Safety</span>",
+    p1: "PT BACY was established with a passion to provide the best solutions for linen management in healthcare facilities.",
+    p2: "We understand that clean linen is not just about comfort, but a crucial part of infection prevention and patient safety.",
+    p3: "By adopting international standards and the latest technology, we deliver services that are not only efficient but also guarantee high hygiene standards. Every process is designed to support hospital and clinic operations so they can focus entirely on patient care.",
+    p4: "We are committed to continuous innovation and becoming a trusted partner for the healthcare industry in Indonesia, providing clean, safe, and high-quality linen every day.",
+    badgeTitle: "Global Standard",
+    badgeSub: "Guaranteed Quality"
+  },
+  id: {
+    eyebrow: "About Us",
+    titleHtml: "Dedikasi untuk <span class='text-primary italic'>Higienitas</span> dan <span class='text-primary italic'>Keselamatan</span> Pasien",
+    p1: "PT BACY didirikan dengan semangat untuk memberikan solusi terbaik bagi pengelolaan linen di fasilitas kesehatan.",
+    p2: "Kami memahami bahwa kebersihan linen bukan sekadar kenyamanan, melainkan bagian krusial dari pencegahan infeksi dan keselamatan pasien.",
+    p3: "Dengan mengadopsi standar internasional dan teknologi terkini, kami menghadirkan layanan yang tidak hanya efisien tetapi juga menjamin higienitas tinggi. Setiap proses kami dirancang untuk mendukung operasional rumah sakit dan klinik agar dapat fokus sepenuhnya pada perawatan pasien.",
+    p4: "Kami berkomitmen untuk terus berinovasi dan menjadi mitra terpercaya bagi dunia kesehatan di Indonesia, menghadirkan linen yang bersih, aman, dan berkualitas tinggi setiap harinya.",
+    badgeTitle: "Standar Global",
+    badgeSub: "Kualitas Terjamin"
+  }
+}[lang];
+---
+
+<section id="about" class="py-24 lg:py-32 bg-white overflow-hidden relative border-b border-slate-50">
+  <!-- Atmospheric Background -->
+  <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+    <div
+      class="absolute right-0 top-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(228,34,46,0.08)_0%,transparent_70%)]"
+    >
+    </div>
+    <div
+      class="absolute left-0 bottom-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(228,34,46,0.08)_0%,transparent_70%)]"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(#e4222e10_1.5px,transparent_1.5px)] [background-size:32px_32px] opacity-20"
+    >
+    </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="flex flex-col">
-        <div
-          class="inline-block self-start mb-6 px-4 py-1 rounded-full bg-primary/10 text-primary text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-        >
-          Our Heritage
+      <!-- Images Grid -->
+      <div class="grid grid-cols-2 gap-4 lg:gap-6 relative group">
+        <div class="absolute inset-0 bg-primary/5 rounded-3xl -m-6 transform -rotate-3 transition-transform duration-500 group-hover:rotate-0 z-0"></div>
+        
+        <div class="space-y-4 lg:space-y-6 relative z-10">
+          <div class="rounded-2xl overflow-hidden shadow-2xl aspect-square border-4 border-white">
+            <img
+              src="/images/about.png"
+              alt="Healthcare Laundry Facility"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] border-4 border-white">
+            <img
+              src="/images/about2.png"
+              alt="Medical Linen"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
         </div>
-
-        <h2
-          class="font-display text-4xl md:text-5xl lg:text-6xl font-light text-secondary mb-10 leading-[1.15]"
-        >
-          Discovering <br />
-          <span class="text-primary italic font-medium"
-            >Abhijati Sahar Dharma</span
-          >
-        </h2>
-
-        <div
-          class="space-y-8 text-slate-500 leading-relaxed text-lg font-light"
-        >
-          <span class="text-secondary font-semibold">Abhijati Sahar Dharma</span
-          > is a <span class="text-secondary font-semibold"
-            >4.0 Interior Design and Furniture Manufacturing</span
-          > company based in <span class="text-secondary font-semibold"
-            >Jakarta</span
-          >, with our head office located at <span
-            class="text-secondary font-semibold">Hermina Tower, Kemayoran</span
-          >, and a fully equipped production facility in <span
-            class="text-secondary font-semibold">Tangerang</span
-          >.
+        <div class="mt-4 md:mt-12 relative z-10">
+          <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] border-4 border-white">
+            <img
+              src="/images/about3.jpeg"
+              alt="Sterilized Equipment"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
         </div>
-        <p>
-          Specializing in <span class="text-secondary font-semibold"
-            >high-quality, long-lasting furniture</span
-          >, we are committed to <span class="text-secondary font-semibold"
-            >precision, durability, and timeless design</span
-          >. Our strength lies in our ability to deliver on <span
-            class="text-secondary font-semibold"
-            >large-scale interior and furnishing projects</span
-          >, backed by years of experience collaborating with a diverse range of
-          clients.
-        </p>
-        <p>
-          We've proudly completed projects for <span
-            class="text-secondary font-semibold"
-            >schools, hospitals, hotels, and other commercial spaces</span
-          >—tailoring every piece to meet the unique demands of each
-          environment. With a combination of skilled craftsmanship, modern
-          manufacturing, and design expertise, we bring ideas to life at <span
-            class="text-secondary font-semibold"
-            >scale and with lasting impact</span
-          >.
-        </p>
       </div>
 
-      <div
-        class="relative group max-w-[320px] md:max-w-[480px] lg:max-w-none mx-auto lg:mx-0"
-      >
-        <div
-          class="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl group-hover:bg-primary/20 transition-all duration-700"
-        >
+      <!-- Content -->
+      <div class="flex flex-col pl-0 lg:pl-8">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-bold tracking-widest uppercase w-fit mb-6 shadow-sm border border-primary/10">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          {t.eyebrow}
         </div>
-        <div
-          class="relative z-10 bg-slate-100 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
+        
+        <h2
+          class="font-display text-4xl md:text-5xl lg:text-5xl font-bold text-slate-900 mb-8 leading-[1.2]"
+          set:html={t.titleHtml}
         >
-          <img
-            src="/images/project/Residential/2.png"
-            alt="Residential Project by Abhijati Sahar Dharma"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-          >
-          </div>
-        </div>
+        </h2>
 
-        <!-- Experience Badge -->
-        <div
-          class="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-white/90 backdrop-blur-md p-4 md:p-8 shadow-2xl rounded-2xl z-20 max-w-[140px] md:max-w-[200px] border border-primary/20 transform hover:-translate-y-2 transition-transform duration-300"
-        >
-          <div class="flex flex-col">
-            <span
-              class="text-gradient-accent text-3xl md:text-5xl font-display font-bold mb-1"
-              >10+</span
-            >
-            <span
-              class="text-[0.6rem] font-bold text-slate-400 uppercase tracking-[0.2em] leading-tight"
-              >Years of Masterful Craftsmanship</span
-            >
-          </div>
+        <div class="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
+          <p class="text-xl text-slate-800 font-medium pl-6 border-l-4 border-primary/40 relative">
+            {t.p1}
+          </p>
+          <p>
+            {t.p2}
+          </p>
+          <p>
+            {t.p3}
+          </p>
+          <p>
+            {t.p4}
+          </p>
+        </div>
+        
+        <div class="mt-12 flex items-center gap-6 pt-8 border-t border-slate-100">
+           <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                 <span class="material-icons-outlined text-3xl">verified</span>
+              </div>
+              <div>
+                 <p class="font-bold text-slate-900 text-xl">{t.badgeTitle}</p>
+                 <p class="text-slate-500 text-sm">{t.badgeSub}</p>
+              </div>
+           </div>
         </div>
       </div>
     </div>

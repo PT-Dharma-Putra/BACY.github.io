@@ -1,156 +1,650 @@
 ---
+const lang = Astro.currentLocale || 'en';
 
+const t = {
+  en: {
+    title: "Our Vision & Mission",
+    subtitle: "Our foundation in delivering the best linen solutions for healthcare facilities in Indonesia",
+    visionLabel: "Our Vision",
+    visionQuote: "To become a healthy and long-lasting linen solution company",
+    visionBadge: "PT BACY Headquarters",
+    missionLabel: "Our Mission",
+    m1: "Develop partnerships to improve linen solutions supported by laundry technology advancements.",
+    m2: "Make continuous efforts to create a comfortable and friendly environment to improve environmental sustainability.",
+    m3: "Implement linen solutions by performing Good Corporate Governance (GCG), focusing on professional, effective, efficient, and optimal targets and performance.",
+    s1Title: "Linen Rental & Wash",
+    s1Desc: "PT BACY provides hospital linen, ranging from OK, VK/Baby, ICU, Polyclinic, and Inpatient linen, along with LMS system & RFID equipment for hospitals.",
+    s2Title: "LMS System Rental",
+    s2Desc: "PT BACY provides all LMS technology equipment needs, chips in every linen, and training for hospital users.",
+    s3Title: "Linen Washing Service",
+    s3Desc: "Hospitals only pay for washing their own linen — a cost-effective solution without equipment investment."
+  },
+  id: {
+    title: "Visi & Misi Kami",
+    subtitle: "Fondasi kami dalam menghadirkan solusi linen terbaik bagi fasilitas kesehatan Indonesia",
+    visionLabel: "Visi Kami",
+    visionQuote: "Mewujudkan Perseroan linen solution yang tumbuh sehat dan berumur panjang",
+    visionBadge: "Kantor Pusat PT BACY",
+    missionLabel: "Misi Kami",
+    m1: "Mengembangkan kemitraan untuk meningkatkan pelaksanaan linen solution yang didukung dengan perkembangan teknologi laundry.",
+    m2: "Melakukan upaya berkelanjutan untuk menciptakan lingkungan yang nyaman dan ramah sebagai upaya peningkatan kelestarian lingkungan hidup.",
+    m3: "Menjalankan pengelolaan linen solution dengan melakukan tata kelola yang baik / Good Corporate Governance (GCG), terfokus pada target dan kinerja secara profesional yang efektif, efisien, dan optimal.",
+    s1Title: "Sewa Cuci Linen",
+    s1Desc: "PT BACY menyediakan linen RS, mulai dari jenis linen OK, VK/Bayi, ICU, Poliklinik dan Rawat Inap berikut dengan system LMS & peralatan RFID untuk RS.",
+    s2Title: "Sewa Sistem LMS",
+    s2Desc: "PT BACY menyediakan semua kebutuhan perangkat teknologi LMS, chip di setiap linen beserta pelatihan bagi user RS.",
+    s3Title: "Jasa Cuci Linen",
+    s3Desc: "Rumah Sakit hanya membayar jasa pencucian linen milik sendiri — solusi hemat tanpa investasi peralatan."
+  }
+}[lang];
 ---
 
-<section id="vision-mission" class="relative bg-white overflow-hidden py-32">
-  <!-- Subtle Background Pattern -->
-  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
-    <div
-      class="absolute inset-0"
-      style="background-image: radial-gradient(circle at 2px 2px, #E4222E 1px, transparent 0); background-size: 40px 40px;"
-    >
+<section id="vision-mission" class="vm-section">
+
+  <!-- Section Header -->
+  <div class="vm-header-wrapper">
+    <div class="vm-header-line"></div>
+    <div class="vm-header-center">
+      <span class="vm-eyebrow">PT BACY</span>
+      <h2 class="vm-section-title">{t.title}</h2>
+      <p class="vm-section-subtitle">{t.subtitle}</p>
     </div>
+    <div class="vm-header-line"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <!-- Section Header -->
-    <div class="text-center mb-24 max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <div class="h-[1px] w-12 bg-primary/30"></div>
-        <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs"
-          >Commitment to Excellence</span
-        >
-        <div class="h-[1px] w-12 bg-primary/30"></div>
-      </div>
-      <h2
-        class="font-display text-5xl md:text-6xl text-secondary font-bold mb-8 leading-tight"
-      >
-        OUR <span class="text-gradient-primary">VISION</span> & <span
-          class="text-gradient-primary">MISSION</span
-        >
-      </h2>
-      <p class="text-slate-500 text-lg font-light leading-relaxed">
-        Guided by innovation and excellence, we strive to build a sustainable
-        future in the interior manufacturing industry.
-      </p>
-    </div>
+  <!-- Main Content -->
+  <div class="vm-container">
+    <div class="vm-main-grid">
 
-    <!-- Redesigned Grid -->
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-stretch">
-      <!-- Vision Card -->
-      <div class="group relative flex flex-col justify-center">
-        <!-- Floating Icon Watermark -->
-        <div
-          class="absolute -top-10 -left-10 text-[15rem] leading-none text-primary/5 font-bold select-none pointer-events-none group-hover:text-primary/10 transition-colors duration-700 font-display"
-        >
-          V
+      <!-- ═══════════ VISI ═══════════ -->
+      <div class="vm-vision-panel">
+        <!-- Decorative label -->
+        <div class="vm-panel-label">
+          <span class="vm-label-icon">◈</span>
+          <span>{t.visionLabel}</span>
         </div>
 
-        <div
-          class="relative z-10 space-y-8 pl-8 md:pl-12 border-l-2 border-primary/10 group-hover:border-primary transition-colors duration-700"
-        >
-          <div class="flex items-center gap-6">
-            <div
-              class="w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center shadow-2xl group-hover:bg-primary transition-colors duration-500"
-            >
-              <span class="material-icons-outlined text-3xl">track_changes</span
-              >
-            </div>
-            <h3
-              class="font-display text-4xl font-bold text-secondary uppercase tracking-wider"
-            >
-              Vision
-            </h3>
-          </div>
-
-          <p
-            class="text-2xl md:text-3xl text-secondary/80 font-display leading-[1.4] italic"
-          >
-            "To become a company in the interior furniture manufacturing
-            industry that consistently implements a
-            <span class="text-primary not-italic font-bold"
-              >green factory approach</span
-            >, specializing in serving hospitals, pharmaceutical facilities,
-            laboratories, clinics, and other medical service sectors."
+        <!-- Quote block -->
+        <div class="vm-vision-quote-block">
+          <div class="vm-quote-mark">"</div>
+          <p class="vm-vision-quote">
+            {t.visionQuote}
           </p>
+        </div>
 
-          <div class="flex items-center gap-3 text-slate-400">
-            <div class="h-[1px] w-8 bg-slate-200"></div>
-            <span class="text-sm uppercase tracking-widest font-bold"
-              >The Gold Standard</span
-            >
+        <!-- Divider -->
+        <div class="vm-vision-divider">
+          <span></span><span class="vm-divider-dot">◆</span><span></span>
+        </div>
+
+        <!-- Image -->
+        <div class="vm-vision-img-wrap">
+          <div class="vm-vision-img-inner">
+            <img src="/images/visi.jpeg" alt="PT BACY Vision" />
+            <div class="vm-img-overlay"></div>
           </div>
+          <div class="vm-img-badge">{t.visionBadge}</div>
         </div>
       </div>
 
-      <!-- Mission Card -->
-      <div
-        class="group relative bg-slate-50/50 p-10 md:p-16 rounded-[2.5rem] border border-slate-100 transition-all duration-700 hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(228,34,46,0.1)] hover:-translate-y-2 overflow-hidden"
-      >
-        <!-- Floating Icon Watermark -->
-        <span
-          class="absolute -bottom-10 -right-10 material-icons-outlined text-[12rem] text-primary/5 rotate-12 group-hover:rotate-0 transition-all duration-1000"
-        >
-          assignment
-        </span>
+      <!-- ═══════════ MISI ═══════════ -->
+      <div class="vm-mission-panel">
+        <!-- Decorative label -->
+        <div class="vm-panel-label vm-panel-label--right">
+          <span class="vm-label-icon">◈</span>
+          <span>{t.missionLabel}</span>
+        </div>
 
-        <div class="relative z-10">
-          <div class="flex items-center gap-6 mb-12">
-            <h3
-              class="font-display text-4xl font-bold text-secondary uppercase tracking-wider underline decoration-primary/30 underline-offset-8"
-            >
-              Mission
-            </h3>
+        <!-- Mission cards + image grid -->
+        <div class="vm-mission-grid">
+
+          <!-- Card 1 -->
+          <div class="vm-mcard vm-mcard--light">
+            <div class="vm-mcard-num">01</div>
+            <p>{t.m1}</p>
           </div>
 
-          <div class="grid gap-10">
-            {
-              [
-                {
-                  title: "Innovation First",
-                  desc: "To deliver innovative products that keep up with current trends and market demands.",
-                },
-                {
-                  title: "Service Excellence",
-                  desc: "To provide friendly, fast, and professional services while maintaining customer satisfaction.",
-                },
-                {
-                  title: "Sustainability",
-                  desc: "To create a positive working environment and preserve environmental sustainability.",
-                },
-                {
-                  title: "3T Principles",
-                  desc: "To produce high-quality products by prioritizing: On-time delivery, Quality compliance, and Budget accuracy.",
-                },
-              ].map((mission) => (
-                <div class="flex gap-6 group/item">
-                  <div class="shrink-0 w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
-                    <span class="material-icons-outlined text-xl">
-                      done_all
-                    </span>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-secondary mb-1 text-lg group-hover/item:text-primary transition-colors">
-                      {mission.title}
-                    </h4>
-                    <p class="text-slate-500 leading-relaxed font-light">
-                      {mission.desc}
-                    </p>
-                  </div>
-                </div>
-              ))
-            }
+          <!-- Card 2 -->
+          <div class="vm-mcard vm-mcard--dark">
+            <div class="vm-mcard-num">02</div>
+            <p>{t.m2}</p>
           </div>
+
+          <!-- Card 3 -->
+          <div class="vm-mcard vm-mcard--accent">
+            <div class="vm-mcard-num">03</div>
+            <p>{t.m3}</p>
+          </div>
+
+          <!-- Card 4: image -->
+          <div class="vm-mcard-img">
+            <img src="/images/Misi.png" alt="PT BACY Mission Operations" />
+            <div class="vm-mcard-img-overlay"></div>
+          </div>
+
         </div>
       </div>
+
     </div>
   </div>
+
+  <!-- ═══════════ SERVICES BAR ═══════════ -->
+  <div class="vm-services-bar">
+    <div class="vm-services-inner">
+
+      <div class="vm-svc">
+        <div class="vm-svc-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 7.27 12 12 3.5 7.27M12 22V12M3.27 6.96 12 2l8.73 4.96v10.08L12 22 3.27 17.04z"/>
+          </svg>
+        </div>
+        <div class="vm-svc-content">
+          <span class="vm-svc-num">01</span>
+          <h3>{t.s1Title}</h3>
+          <p>{t.s1Desc}</p>
+        </div>
+      </div>
+
+      <div class="vm-svc-divider"></div>
+
+      <div class="vm-svc">
+        <div class="vm-svc-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <div class="vm-svc-content">
+          <span class="vm-svc-num">02</span>
+          <h3>{t.s2Title}</h3>
+          <p>{t.s2Desc}</p>
+        </div>
+      </div>
+
+      <div class="vm-svc-divider"></div>
+
+      <div class="vm-svc">
+        <div class="vm-svc-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="vm-svc-content">
+          <span class="vm-svc-num">03</span>
+          <h3>{t.s3Title}</h3>
+          <p>{t.s3Desc}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <style>
-  .text-gradient-primary {
-    background: linear-gradient(135deg, #e4222e 0%, #991b1b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* ─────────────────────────────────────────────
+     FONTS & BASE
+  ───────────────────────────────────────────── */
+  .vm-section {
+    background: #f8f9fa;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ─────────────────────────────────────────────
+     SECTION HEADER
+  ───────────────────────────────────────────── */
+  .vm-header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 4rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .vm-header-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #cbd5e1);
+  }
+
+  .vm-header-line:last-child {
+    background: linear-gradient(to left, transparent, #cbd5e1);
+  }
+
+  .vm-header-center {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .vm-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #0f6b3c;
+    background: #e6f4ee;
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .vm-section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: #0d2818;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .vm-section-subtitle {
+    font-size: 0.92rem;
+    color: #64748b;
+    max-width: 420px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─────────────────────────────────────────────
+     MAIN GRID
+  ───────────────────────────────────────────── */
+  .vm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem 3.5rem;
+  }
+
+  .vm-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* ─────────────────────────────────────────────
+     PANEL LABEL
+  ───────────────────────────────────────────── */
+  .vm-panel-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #0f6b3c;
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 2px solid #e0ebe5;
+    width: 100%;
+  }
+
+  .vm-label-icon {
+    color: #0f6b3c;
+    font-size: 0.9rem;
+  }
+
+  /* ─────────────────────────────────────────────
+     VISION PANEL
+  ───────────────────────────────────────────── */
+  .vm-vision-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    border: 1px solid #e8f0eb;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .vm-vision-quote-block {
+    position: relative;
+    padding: 0.5rem 0 1.5rem 2.5rem;
+  }
+
+  .vm-quote-mark {
+    position: absolute;
+    left: -0.2rem;
+    top: -1.2rem;
+    font-size: 5rem;
+    color: #0f6b3c;
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .vm-vision-quote {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a2e22;
+    line-height: 1.65;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+  }
+
+  .vm-vision-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1.5rem;
+    color: #c3d9cb;
+  }
+
+  .vm-vision-divider span:first-child,
+  .vm-vision-divider span:last-child {
+    flex: 1;
+    height: 1px;
+    background: #d4e7da;
+  }
+
+  .vm-divider-dot {
+    font-size: 0.55rem;
+    color: #0f6b3c;
+    flex: none !important;
+    height: auto !important;
+    background: none !important;
+  }
+
+  .vm-vision-img-wrap {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .vm-vision-img-inner {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .vm-vision-img-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+
+  .vm-vision-img-inner:hover img {
+    transform: scale(1.05);
+  }
+
+  .vm-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 40, 24, 0.45) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .vm-img-badge {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0.9rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    color: #0d2818;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  /* ─────────────────────────────────────────────
+     MISSION PANEL
+  ───────────────────────────────────────────── */
+  .vm-mission-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    border: 1px solid #e8f0eb;
+  }
+
+  .vm-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.85rem;
+  }
+
+  /* Mission Cards */
+  .vm-mcard {
+    border-radius: 14px;
+    padding: 1.2rem 1.3rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .vm-mcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+
+  .vm-mcard p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vm-mcard-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Light card */
+  .vm-mcard--light {
+    background: #f0f9f4;
+    border: 1.5px solid #c6e4d0;
+    color: #1a3d27;
+  }
+
+  .vm-mcard--light .vm-mcard-num {
+    color: #0f6b3c;
+    opacity: 0.6;
+  }
+
+  /* Dark card */
+  .vm-mcard--dark {
+    background: linear-gradient(135deg, #0f6b3c 0%, #0a4c2a 100%);
+    color: #e6f4ee;
+  }
+
+  .vm-mcard--dark .vm-mcard-num {
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* Accent card (spans row 2 col 1) */
+  .vm-mcard--accent {
+    background: linear-gradient(135deg, #0d2818 0%, #163824 100%);
+    color: #d1ead9;
+  }
+
+  .vm-mcard--accent .vm-mcard-num {
+    color: rgba(255,255,255,0.15);
+  }
+
+  .vm-mcard--accent p {
+    font-weight: 500;
+  }
+
+  /* Image card */
+  .vm-mcard-img {
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    position: relative;
+  }
+
+  .vm-mcard-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+
+  .vm-mcard-img:hover img {
+    transform: scale(1.06);
+  }
+
+  .vm-mcard-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,40,24,0.4) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────────────────────
+     SERVICES BAR
+  ───────────────────────────────────────────── */
+  .vm-services-bar {
+    background: linear-gradient(135deg, #0a3d22 0%, #0d2818 60%, #061510 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vm-services-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .vm-services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vm-svc-divider {
+    width: 1px;
+    height: 5rem;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.18), transparent);
+    margin: 0 1rem;
+  }
+
+  .vm-svc {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 2.5rem 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .vm-svc:hover {
+    opacity: 0.9;
+  }
+
+  .vm-svc-icon-wrap {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.55rem;
+    color: #5dd89c;
+  }
+
+  .vm-svc-icon-wrap svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .vm-svc-content {
+    flex: 1;
+  }
+
+  .vm-svc-num {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #5dd89c;
+    margin-bottom: 0.2rem;
+  }
+
+  .vm-svc-content h3 {
+    font-size: 0.97rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .vm-svc-content p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+
+  /* ─────────────────────────────────────────────
+     RESPONSIVE
+  ───────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .vm-main-grid {
+      grid-template-columns: 1fr;
+    }
+    .vm-header-wrapper {
+      padding: 3rem 2rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vm-container {
+      padding: 0 1.5rem 2.5rem;
+    }
+    .vm-header-wrapper {
+      padding: 2.5rem 1.5rem 1.5rem;
+      gap: 1rem;
+    }
+    .vm-header-line {
+      display: none;
+    }
+    .vm-services-inner {
+      grid-template-columns: 1fr;
+      padding: 0 1.5rem;
+    }
+    .vm-svc-divider {
+      display: none;
+    }
+    .vm-svc {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .vm-svc:last-child {
+      border-bottom: none;
+    }
   }
 </style>

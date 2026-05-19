@@ -1,0 +1,77 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    title: "Testimonials",
+    quote: '"The quality of linen hygiene is a crucial aspect in the prevention of nosocomial infections in our hospital. Since partnering with PT BACY, our linen hygiene standards have always been maintained and meet the Ministry of Health regulations. The strict separation process of infectious linen and consistent lab test results give us peace of mind in providing services to patients."'
+  },
+  id: {
+    title: "Testimoni",
+    quote: '"Kualitas kebersihan linen merupakan aspek krusial dalam pencegahan infeksi nosokomial di rumah sakit kami. Sejak bermitra dengan PT BACY, standar higienitas linen kami selalu terjaga dan memenuhi regulasi Kemenkes. Proses pemisahan linen infeksius yang ketat dan hasil uji lab yang konsisten membuat kami merasa tenang dalam memberikan pelayanan kepada pasien."'
+  }
+}[lang];
+---
+<section class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header with Dark Green Bar -->
+    <div class="bg-[#0b3d1b] py-6 px-10 flex items-center justify-between mb-20">
+      <div class="text-white text-3xl md:text-5xl font-light tracking-[-0.1em] opacity-80">{"»»»»»»»»»»"}</div>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-white uppercase tracking-[0.3em] text-center">
+        {t.title}
+      </h2>
+      <div class="text-white text-3xl md:text-5xl font-light tracking-[-0.1em] opacity-80">{"««««««««««"}</div>
+    </div>
+
+    <div class="px-6">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+        {
+          [1, 2, 3, 4].map(() => (
+            <div class="relative pt-12 pb-8 px-8 md:px-12">
+              <!-- Decorative Outer Frame -->
+              <div class="absolute inset-0 border-4 border-[#0b3d1b] rounded-[2rem] pointer-events-none"></div>
+              
+              <!-- Sage Green Background Card -->
+              <div class="bg-[#6e8c6e] rounded-[1.5rem] p-8 relative z-10 shadow-xl">
+                <!-- Quote Icons -->
+                <span class="absolute -top-10 -left-4 text-9xl text-[#0b3d1b] font-serif leading-none opacity-40">“</span>
+                <span class="absolute -top-10 -right-4 text-9xl text-[#0b3d1b] font-serif leading-none opacity-40">”</span>
+                
+                <div class="flex items-start gap-6 mb-4">
+                  <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center p-2 shadow-inner">
+                    <img src="/images/Testimoni.png" alt="Hospital Logo" class="w-full h-auto object-contain" />
+                  </div>
+                  <div class="pt-2">
+                    <h4 class="font-bold text-white text-xl mb-1 uppercase tracking-wider">RS HERMINA</h4>
+                    <div class="flex items-center gap-2">
+                      <div class="flex text-[#ffb800] gap-0.5">
+                        {[...Array(5)].map(() => (
+                          <span class="material-icons text-xl">star</span>
+                        ))}
+                      </div>
+                      <span class="text-white font-bold text-sm">5.0</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="text-white text-sm leading-relaxed font-medium">
+                  {t.quote}
+                </p>
+                
+                <!-- Bottom Quote Icons -->
+                <div class="flex justify-between mt-4">
+                   <span class="text-8xl text-[#0b3d1b] font-serif leading-none opacity-40 translate-y-4">“</span>
+                   <div class="w-24 h-1 bg-[#0b3d1b] self-end mb-4"></div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+</style>

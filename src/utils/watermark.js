@@ -39,7 +39,7 @@ export async function getWatermarkedDataUrl(src) {
                 // 1. Gambar original
                 ctx.drawImage(img, 0, 0);
                 
-                // 2. Tambahkan Logo PT ASD
+                // 2. Tambahkan Logo PT BACY
                 const logoScale = 0.15;
                 const logoWidth = canvas.width * logoScale;
                 const logoHeight = (logo.height / logo.width) * logoWidth;
@@ -65,7 +65,7 @@ export async function getWatermarkedDataUrl(src) {
                 ctx.save();
                 ctx.translate(canvas.width / 2, canvas.height / 2);
                 ctx.rotate(-Math.PI / 4);
-                ctx.fillText("ABHIJATI SAHAR DHARMA", 0, 0);
+                ctx.fillText("PT BACY", 0, 0);
                 ctx.restore();
 
                 const result = canvas.toDataURL('image/jpeg', 0.8);
@@ -82,7 +82,7 @@ export async function getWatermarkedDataUrl(src) {
         logo.onerror = () => reject('Gagal memuat logo watermark');
 
         img.src = src;
-        logo.src = "/images/logoASD.png";
+        logo.src = "/images/logo_bacy.png";
     });
 }
 

@@ -1,79 +1,95 @@
+---
+// Navbar.astro - Elegant & Professional Navigation
+const lang = Astro.currentLocale || 'en';
+const basePath = lang === 'id' ? '/id' : '';
+
+const t = {
+  en: {
+    home: "Home",
+    about: "About Us",
+    services: "Our Services",
+    technology: "Technology",
+    certificates: "Certificates",
+    contact: "Contact Us",
+    reachOut: "Reach Out To Us"
+  },
+  id: {
+    home: "Beranda",
+    about: "Tentang Kami",
+    services: "Layanan Kami",
+    technology: "Teknologi",
+    certificates: "Sertifikat",
+    contact: "Hubungi Kami",
+    reachOut: "Hubungi Kami"
+  }
+}[lang];
+---
+
 <nav
-  class="fixed top-0 left-0 w-full z-50 bg-background-light/80 backdrop-blur-lg border-b border-primary/10 transition-all duration-300"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out py-5 bg-transparent"
   id="main-nav"
 >
-  <div
-    class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center relative z-50"
-  >
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-50">
+    
+    <!-- Logo -->
     <div class="flex items-center gap-3">
-      <a
-        href="/#home"
-        class="flex items-center group transition-transform duration-300 hover:scale-105"
-      >
+      <a href="/#home" class="flex items-center group transition-transform duration-500 hover:scale-105">
         <img
-          src="/images/logoASD.png"
-          alt="Abhijati Sahar Dharma Logo"
-          class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
+          src="/images/logo_bacy.png"
+          alt="PT BACY Logo"
+          class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]"
           id="nav-logo"
         />
-        <span
-          class="ml-3 text-[0.85rem] sm:text-base md:text-lg lg:text-xl font-display font-semibold text-secondary tracking-tight leading-tight"
-        >
-          Abhijati <span class="text-primary italic font-bold"
-            >Sahar Dharma</span
-          >
-        </span>
       </a>
     </div>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-10">
       {
         [
-          { href: "/#home", text: "Home" },
-          { href: "/#about", text: "About" },
-          // { href: "/#subsidiaries", text: "Subsidiaries" },
-          { href: "/#services", text: "Services", external: false },
-          { href: "/#projects", text: "Projects", external: false },
-          { href: "/#client", text: "Clients", external: false },
-          // { href: "/careers", text: "Careers" },
-          // {
-          //   href: "https://www.trackingorderdpsa.xyz/",
-          //   text: "Track Order",
-          //   external: true,
-          // },
+          { href: `${basePath}/#home`, text: t.home },
+          { href: `${basePath}/#about`, text: t.about },
+          { href: `${basePath}/#services`, text: t.services },
+          { href: `${basePath}/#rfid-system`, text: t.technology },
+          { href: `${basePath}/#certificates`, text: t.certificates },
         ].map((item) => (
           <a
             href={item.href}
             target={item.external ? "_blank" : undefined}
-            class="relative text-[0.75rem] font-bold text-slate-600 hover:text-primary transition-colors uppercase tracking-[0.1em] group py-2"
+            class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
           >
             {item.text}
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+            <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
           </a>
         ))
       }
+      
+      <!-- Language Switcher Desktop -->
+      <div class="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-widest text-white/70 ml-2 border border-white/10 rounded-full px-3 py-1.5 backdrop-blur-sm">
+        <a href="/" class={`hover:text-white transition-colors ${lang === 'en' ? 'text-[#C5A059]' : ''}`}>EN</a>
+        <span class="text-white/20">|</span>
+        <a href="/id/" class={`hover:text-white transition-colors ${lang === 'id' ? 'text-[#C5A059]' : ''}`}>ID</a>
+      </div>
+
+      <!-- Contact Button -->
       <a
-        href="https://wa.me/6281127005688"
+        href="https://wa.me/6281128507788"
         target="_blank"
-        class="bg-primary text-white text-[0.7rem] font-bold uppercase tracking-widest px-6 py-2.5 rounded-full hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
+        class="relative inline-flex items-center justify-center px-7 py-2.5 text-[0.75rem] font-bold text-[#080e0a] uppercase tracking-widest bg-gradient-to-r from-[#C5A059] to-[#E5C27B] rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(197,160,89,0.4)] hover:-translate-y-0.5 group"
       >
-        Contact Us
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:animate-shimmer"></span>
+        <span class="relative flex items-center gap-2">
+          {t.contact}
+        </span>
       </a>
     </div>
 
     <!-- Mobile Menu Button -->
-    <button id="menu-toggle" class="p-2 text-primary md:hidden group">
-      <div class="w-6 h-5 flex flex-col justify-between items-end">
-        <span
-          class="w-full h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-2/3"
-        ></span>
-        <span
-          class="w-2/3 h-0.5 bg-primary rounded-full transition-all duration-300"
-        ></span>
-        <span
-          class="w-full h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-1/2"
-        ></span>
+    <button id="menu-toggle" class="p-2 md:hidden group z-50">
+      <div class="w-7 h-5 flex flex-col justify-between items-end">
+        <span class="w-full h-[2px] bg-white rounded-full transition-all duration-300 group-hover:w-3/4"></span>
+        <span class="w-3/4 h-[2px] bg-white rounded-full transition-all duration-300 group-hover:w-full"></span>
+        <span class="w-full h-[2px] bg-white rounded-full transition-all duration-300 group-hover:w-1/2"></span>
       </div>
     </button>
   </div>
@@ -81,99 +97,80 @@
   <!-- Mobile Menu Overlay -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 bg-background-light z-[60] transform translate-x-full invisible pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] md:hidden flex flex-col h-screen"
+    class="fixed inset-0 bg-[#080e0a]/95 backdrop-blur-xl z-[60] transform translate-x-full invisible pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] md:hidden flex flex-col h-screen"
   >
     <!-- Mobile Header -->
-    <div
-      class="flex justify-between items-center px-6 py-6 border-b border-primary/10"
-    >
+    <div class="flex justify-between items-center px-6 py-6 border-b border-white/5">
       <a href="/#home" class="flex items-center">
         <img
-          src="/images/logoASD.png"
-          alt="PT ASD Logo"
-          class="h-14 w-auto object-contain"
+          src="/images/logo_bacy.png"
+          alt="PT BACY Logo"
+          class="h-12 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]"
         />
       </a>
       <button
         id="close-menu"
-        class="p-2 text-secondary hover:text-primary transition-colors"
+        class="p-2 text-white/70 hover:text-[#C5A059] transition-colors"
       >
-        <span class="material-icons-outlined text-3xl">close</span>
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
       </button>
     </div>
 
     <!-- Mobile Scrollable Content -->
-    <div
-      class="flex-1 overflow-y-auto px-8 py-10 flex flex-col justify-between"
-    >
-      <div class="space-y-6">
+    <div class="flex-1 overflow-y-auto px-8 py-12 flex flex-col justify-between relative">
+      <!-- Decorative element -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-[80px] pointer-events-none"></div>
+      
+      <div class="space-y-8 relative z-10">
         {
           [
-            { href: "/#home", text: "Home", icon: "home" },
-            { href: "/#about", text: "About Us", icon: "info" },
-            {
-              href: "/#services",
-              text: "Services",
-              icon: "settings",
-              external: false,
-            },
-            {
-              href: "/#projects",
-              text: "Projects",
-              icon: "work",
-              external: false,
-            },
-            {
-              href: "/#client",
-              text: "Clients",
-              icon: "group",
-              external: false,
-            },
-            // { href: "/careers", text: "Careers", icon: "person_search" },
-            // {
-            //   href: "https://www.trackingorderdpsa.xyz/",
-            //   text: "Track Order",
-            //   icon: "analytics",
-            //   external: true,
-            // },
+            { href: `${basePath}/#home`, text: t.home },
+            { href: `${basePath}/#about`, text: t.about },
+            { href: `${basePath}/#services`, text: t.services },
+            { href: `${basePath}/#rfid-system`, text: t.technology },
+            { href: `${basePath}/#certificates`, text: t.certificates },
           ].map((item, index) => (
             <a
               href={item.href}
               target={item.external ? "_blank" : undefined}
-              class="mobile-link flex items-center justify-between group translate-y-8 opacity-0 transition-all duration-700"
-              style={`transition-delay: ${index * 50}ms;`}
+              class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+              style={`transition-delay: ${index * 75}ms;`}
             >
-              <span class="text-4xl font-display font-bold text-secondary group-hover:text-primary transition-colors">
+              <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
+                <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
+                  &rarr;
+                </span>
                 {item.text}
               </span>
-              <div class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <span class="material-icons-outlined text-xl">{item.icon}</span>
-              </div>
             </a>
           ))
         }
       </div>
 
-      <div
-        class="pb-10 translate-y-8 opacity-0 transition-all duration-700 delay-[500ms]"
-        id="mobile-footer"
-      >
-        <div class="w-full h-px bg-primary/10 mb-8"></div>
+      <div class="pb-10 translate-y-8 opacity-0 transition-all duration-700 delay-[500ms] relative z-10" id="mobile-footer">
+        <div class="w-full h-px bg-white/5 mb-8"></div>
         <div class="flex flex-col gap-4">
-          <p
-            class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold"
-          >
-            Reach Out To Us
+          <!-- Language Switcher Mobile -->
+          <div class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-white/70 mb-2">
+            <a href="/" class={`hover:text-white transition-colors ${lang === 'en' ? 'text-[#C5A059]' : ''}`}>EN (English)</a>
+            <span class="text-white/20">|</span>
+            <a href="/id/" class={`hover:text-white transition-colors ${lang === 'id' ? 'text-[#C5A059]' : ''}`}>ID (Indonesia)</a>
+          </div>
+
+          <p class="text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">
+            {t.reachOut}
           </p>
           <a
-            href="https://wa.me/6281127005688"
+            href="https://wa.me/6281128507788"
             target="_blank"
-            class="flex items-center gap-4 text-secondary font-bold text-xl group hover:text-primary transition-colors"
+            class="flex items-center gap-4 text-white font-medium text-lg group hover:text-[#C5A059] transition-colors"
           >
-            <div
-              class="w-12 h-12 bg-primary flex items-center justify-center rounded-xl text-white group-hover:scale-110 transition-transform"
-            >
-              <span class="material-icons-outlined">chat</span>
+            <div class="w-12 h-12 bg-gradient-to-br from-[#C5A059] to-[#E5C27B] flex items-center justify-center rounded-full text-[#080e0a] group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(197,160,89,0.3)]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"/>
+              </svg>
             </div>
             0811-2700-5688
           </a>
@@ -181,6 +178,22 @@
       </div>
     </div>
   </div>
+
+  <style>
+    @keyframes shimmer {
+      100% { transform: translateX(100%); }
+    }
+    .animate-shimmer {
+      animation: shimmer 2s infinite;
+    }
+    .nav-link.active {
+      color: white;
+    }
+    .nav-link.active .nav-indicator {
+      width: 100%;
+      opacity: 1;
+    }
+  </style>
 
   <script>
     const menuToggle = document.getElementById("menu-toggle");
@@ -193,41 +206,36 @@
     // Scroll Behavior
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-        mainNav?.classList.add("py-0", "shadow-sm", "bg-background-light/95");
-        mainNav?.classList.remove("py-2", "bg-background-light/80");
+        // Scrolled state: Dark background with blur, smaller padding, thin border
+        mainNav?.classList.add("py-3", "bg-[#080e0a]/90", "backdrop-blur-lg", "border-b", "border-white/5", "shadow-[0_4px_30px_rgba(0,0,0,0.3)]");
+        mainNav?.classList.remove("py-5", "bg-transparent");
       } else {
-        mainNav?.classList.remove(
-          "py-0",
-          "shadow-sm",
-          "bg-background-light/95",
-        );
-        mainNav?.classList.add("py-2", "bg-background-light/80");
+        // Top state: Transparent, larger padding
+        mainNav?.classList.remove("py-3", "bg-[#080e0a]/90", "backdrop-blur-lg", "border-b", "border-white/5", "shadow-[0_4px_30px_rgba(0,0,0,0.3)]");
+        mainNav?.classList.add("py-5", "bg-transparent");
       }
     });
 
+    // Handle Mobile Menu
     const toggleMenu = (open: boolean) => {
       if (open) {
-        mobileMenu?.classList.remove(
-          "translate-x-full",
-          "invisible",
-          "pointer-events-none",
-        );
-        document.body.style.overflow = "hidden";
+        mobileMenu?.classList.remove("translate-x-full", "invisible", "pointer-events-none");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
 
-        // Animate items in
+        // Animate items in stagger
         setTimeout(() => {
           mobileLinks.forEach((link) => {
             link.classList.remove("translate-y-8", "opacity-0");
           });
           mobileFooter?.classList.remove("translate-y-8", "opacity-0");
-        }, 100);
+        }, 50);
       } else {
         mobileMenu?.classList.add("translate-x-full");
         document.body.style.overflow = "";
 
         // Reset animation state after transition
         setTimeout(() => {
-          if (!mobileMenu?.classList.contains("translate-x-full")) return; // Guard if reopened
+          if (!mobileMenu?.classList.contains("translate-x-full")) return;
           mobileMenu?.classList.add("invisible", "pointer-events-none");
           mobileLinks.forEach((link) => {
             link.classList.add("translate-y-8", "opacity-0");
@@ -242,6 +250,52 @@
 
     mobileLinks.forEach((link) => {
       link.addEventListener("click", () => toggleMenu(false));
+    });
+
+    // Active Link Scroll Spy
+    const desktopNavLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (!id) return;
+          
+          desktopNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `/#${id}`) {
+              link.classList.add('active');
+            }
+          });
+          
+          mobileNavLinks.forEach(link => {
+            const textSpan = link.querySelector('.mobile-link-text');
+            const indicator = link.querySelector('.mobile-link-indicator');
+            if (link.getAttribute('href') === `/#${id}`) {
+              textSpan?.classList.add('text-white');
+              textSpan?.classList.remove('text-white/80');
+              indicator?.classList.add('opacity-100');
+              indicator?.classList.remove('opacity-0');
+            } else {
+              textSpan?.classList.remove('text-white');
+              textSpan?.classList.add('text-white/80');
+              indicator?.classList.remove('opacity-100');
+              indicator?.classList.add('opacity-0');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section[id]').forEach((section) => {
+      observer.observe(section);
     });
   </script>
 </nav>

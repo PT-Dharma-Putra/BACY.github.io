@@ -1,0 +1,381 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    eyebrow: "System & Infrastructure",
+    title: "INTEGRATED WITH RFID TECHNOLOGY",
+    mainTitleHtml: "SUPPORT<br/>BY RFID<br/>SYSTEM",
+    mainSubtitle: "RFID Technology",
+    mainDesc: "RFID is an item identification technology consisting of a reader and tag/chip. This system allows for the automatic recording of the number and type of linen without direct contact, and helps with tracking, stock opname, and minimizing linen loss in hospitals.",
+    card1TitleHtml: "<span class='font-sans font-extrabold text-[20px] md:text-[22px] lg:text-[26px] block mb-1 uppercase tracking-wide'>RFID</span><span class='font-display italic font-bold text-[20px] md:text-[22px] lg:text-[26px] block'>Benefits</span>",
+    card1Sub: "Benefits",
+    card1Desc: "Makes it easier for hospitals to control daily expenses through web-based PCs and Android-based mobile phones/tablets.",
+    card2Title: "MONITORING",
+    card2Sub: "Monitoring",
+    card2Desc: "Allows the hospital to calculate the unit cost of linen in the units within the hospital, so that unit accountability for the risk of linen loss/damage can be monitored.",
+    card3Title: "ACCOUNTABILITY",
+    card3Sub: "Accountability",
+    card3Desc: "Maintain accountability of linen assets and ensure transparent and efficient daily operations between hospital units.",
+    card4Title: "HYGIENE",
+    card4Sub: "Hygiene",
+    card4Desc: "Implementing nosocomial infection control in the hospital, without touching infectious or non-infectious linen in reusable yellow (infectious) and black (non-infectious) plastic bags.",
+    card5Title: "VALIDATION",
+    card5Sub: "Validation",
+    card5Desc: "Validating incoming and outgoing linen data accurately between PT BACY and the Hospital in real-time.",
+    card6Title: "TRACKING",
+    card6Sub: "Tracking",
+    card6Desc: "Able to track the age of linen and linen usage or how many times it has been washed, so the FIFO (first in first out) method runs well."
+  },
+  id: {
+    eyebrow: "Sistem & Infrastruktur",
+    title: "TERINTEGRASI DENGAN TEKNOLOGI RFID",
+    mainTitleHtml: "SUPPORT<br/>BY RFID<br/>SYSTEM",
+    mainSubtitle: "Teknologi RFID",
+    mainDesc: "RFID adalah teknologi identifikasi barang yang terdiri dari reader dan tag/chip. Sistem ini memungkinkan pendataan jumlah dan jenis linen secara otomatis tanpa kontak langsung, serta membantu pelacakan, stock opname, dan meminimalisir kehilangan linen di rumah sakit.",
+    card1TitleHtml: "<span class='font-sans font-extrabold text-[20px] md:text-[22px] lg:text-[26px] block mb-1 uppercase tracking-wide'>RFID</span><span class='font-display italic font-bold text-[20px] md:text-[22px] lg:text-[26px] block'>Benefits</span>",
+    card1Sub: "Benefits",
+    card1Desc: "Memudahkan pihak RS melakukan control pengeluaran setiap hari melalui PC (personal computer) berbasis web dan handphone/tablet berbasis android.",
+    card2Title: "MONITORING",
+    card2Sub: "Monitoring",
+    card2Desc: "Memungkinkan pihak RS untuk menghitung unit cost linen diunit-unit yang ada di dalam RS, sehingga pertanggung jawaban unit terhadap resiko kehilangan/kerusakan linen dapat termonitor.",
+    card3Title: "AKUNTABILITAS",
+    card3Sub: "Akuntabilitas",
+    card3Desc: "Menjaga akuntabilitas aset linen dan memastikan operasional harian yang transparan dan efisien antar unit Rumah Sakit.",
+    card4Title: "HIGENITAS",
+    card4Sub: "Higenitas",
+    card4Desc: "Mengimplementasikan pengendalian infeksi nosokomial didalam RS, dengan tanpa menyentuh linen infeksius maupun non infeksius yang ada di dalam kantong plastic reusable warna kuning (infeksius), hitam (non infeksius).",
+    card5Title: "VALIDASI",
+    card5Sub: "Validasi",
+    card5Desc: "Mencegah tertukarnya linen dengan unit-unit lain ataupun dengan Rumah Sakit lain yang dilayani oleh PT. BACY.",
+    card6Title: "TRACKING",
+    card6Sub: "Tracking",
+    card6Desc: "Dapat mengetahui usia linen dan pemakaian linen atau berapa kali cuci, sehingga metode FIFO (first in first out) berjalan dengan baik."
+  }
+}[lang];
+---
+
+<section id="rfid-system" class="py-16 md:py-24 relative overflow-hidden bg-slate-50">
+  <!-- Elegant Background Elements -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.04] z-0">
+    <!-- Subtle Grid Background -->
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgb(26 57 42 / 0.4) 1px, transparent 0); background-size: 32px 32px;"></div>
+    
+    <!-- Watermark Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="absolute top-10 left-[15%] w-64 h-64 text-primary">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      <path d="m9 12 2 2 4-4"></path>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="absolute bottom-10 left-[20%] w-56 h-56 text-primary">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 text-primary">
+      <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
+      <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="absolute top-20 right-[10%] w-72 h-72 text-primary">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+    <!-- Section Title -->
+    <div class="text-center mb-12 md:mb-16">
+      <span class="text-accent font-semibold tracking-wider uppercase text-sm md:text-base mb-3 block">
+        {t.eyebrow}
+      </span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-primary leading-tight max-w-2xl mx-auto">
+        {t.title}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 items-start">
+      
+      <!-- Left Column: Title Box -->
+      <div class="md:col-span-1 flex flex-col justify-center h-full">
+        <!-- Removed fixed aspect ratio on mobile. Uses Grid to wrap content tightly. -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-[4/5] lg:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <!-- Ambient Glow under the card -->
+          <div class="absolute inset-0 bg-primary/5 rounded-2xl blur-xl group-hover:bg-primary/15 transition-all duration-500"></div>
+          
+          <!-- grid trick for dynamic height flip cards -->
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <!-- Front -->
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col justify-center items-center text-center p-6 md:p-6 border-t-[6px] border-t-primary">
+              <div class="absolute top-4 right-4 md:top-4 md:right-4 w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h2 class="font-display italic font-extrabold tracking-widest text-primary text-2xl lg:text-3xl leading-relaxed uppercase my-4" set:html={t.mainTitleHtml}>
+              </h2>
+            </div>
+
+            <!-- Back -->
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 flex flex-col justify-start items-start text-left p-5 md:p-6 border-t-[6px] border-t-primary">
+              <div class="absolute top-4 right-4 md:top-4 md:right-4 w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-3 mb-4 mt-1">
+                <div class="p-2 bg-primary/5 rounded-lg text-primary shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[16px] md:text-[17px] text-primary">{t.mainSubtitle}</h4>
+              </div>
+              <div class="w-full">
+                <p class="text-[13px] md:text-[13px] leading-relaxed font-medium text-slate-600">
+                  {t.mainDesc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 3 Columns: Grid of 6 -->
+      <div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 items-start">
+        
+        <!-- Top Row -->
+        <!-- RFID Benefits -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/5 rounded-2xl blur-xl group-hover:bg-primary/10 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col justify-center items-center text-center p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="text-primary leading-tight my-4" set:html={t.card1TitleHtml}>
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 flex flex-col justify-start items-start text-left p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all duration-300">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3">
+                <div class="p-1.5 md:p-2 bg-primary/5 rounded-lg text-primary shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><polyline points="9 9 11 11 15 7"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[14px] md:text-[15px] lg:text-[17px] text-primary">{t.card1Sub}</h4>
+              </div>
+              <div class="w-full">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-600 font-medium">
+                  {t.card1Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MONITORING -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/5 rounded-2xl blur-xl group-hover:bg-primary/10 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col justify-center items-center text-center p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="font-display italic font-bold text-[16px] md:text-lg lg:text-xl uppercase tracking-widest text-primary my-4">
+                {t.card2Title}
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 flex flex-col justify-start items-start text-left p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all duration-300">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3">
+                <div class="p-1.5 md:p-2 bg-primary/5 rounded-lg text-primary shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><circle cx="12" cy="13" r="3"/><line x1="14" y1="15" x2="16" y2="17"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[14px] md:text-[15px] lg:text-[17px] text-primary">{t.card2Sub}</h4>
+              </div>
+              <div class="w-full">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-600 font-medium">
+                  {t.card2Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- AKUNTABILITAS -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/5 rounded-2xl blur-xl group-hover:bg-primary/10 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col justify-center items-center text-center p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="font-display italic font-bold text-[15px] md:text-[16px] lg:text-[18px] uppercase tracking-widest text-primary my-4">
+                {t.card3Title}
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-white to-slate-50/80 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 flex flex-col justify-start items-start text-left p-4 md:p-6">
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all duration-300">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3">
+                <div class="p-1.5 md:p-2 bg-primary/5 rounded-lg text-primary shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14h6"></path><path d="M9 10h6"></path><path d="M9 18h6"></path></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[13px] md:text-[15px] lg:text-[17px] text-primary truncate">{t.card3Sub}</h4>
+              </div>
+              <div class="w-full">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-600 font-medium">
+                  {t.card3Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <!-- HIGENITAS -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:bg-primary/30 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-center items-center text-center p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm transition-transform duration-300 group-hover:scale-110 z-10">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="font-display italic font-bold text-[16px] md:text-lg lg:text-xl uppercase tracking-widest text-white z-10 my-4">
+                {t.card4Title}
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-start items-start text-left p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm hover:bg-white hover:text-primary transition-all duration-300 z-20">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3 z-10">
+                <div class="p-1.5 md:p-2 bg-white/10 rounded-lg text-white shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v1"/><path d="M12 19v1"/><path d="M4 12h1"/><path d="M19 12h1"/><path d="M6 6l1 1"/><path d="M17 17l1 1"/><path d="M6 18l1-1"/><path d="M17 7l1-1"/><circle cx="12" cy="12" r="6"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[14px] md:text-[15px] lg:text-[17px] text-white">{t.card4Sub}</h4>
+              </div>
+              <div class="w-full z-10">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-200 font-light">
+                  {t.card4Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- VALIDASI -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:bg-primary/30 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-center items-center text-center p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm transition-transform duration-300 group-hover:scale-110 z-10">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="font-display italic font-bold text-[16px] md:text-lg lg:text-xl uppercase tracking-widest text-white z-10 my-4">
+                {t.card5Title}
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-start items-start text-left p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm hover:bg-white hover:text-primary transition-all duration-300 z-20">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3 z-10">
+                <div class="p-1.5 md:p-2 bg-white/10 rounded-lg text-white shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[14px] md:text-[15px] lg:text-[17px] text-white">{t.card5Sub}</h4>
+              </div>
+              <div class="w-full z-10">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-200 font-light">
+                  {t.card5Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TRACKING -->
+        <div class="rfid-card cursor-pointer group [perspective:1000px] h-full md:aspect-square hover:-translate-y-2 transition-all duration-500 rounded-2xl relative">
+          <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:bg-primary/30 transition-all duration-500"></div>
+          <div class="flip-inner relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] ease-[cubic-bezier(0.23,1,0.32,1)] grid">
+            
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-center items-center text-center p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm transition-transform duration-300 group-hover:scale-110 z-10">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              </div>
+              <h3 class="font-display italic font-bold text-[16px] md:text-lg lg:text-xl uppercase tracking-widest text-white z-10 my-4">
+                {t.card6Title}
+              </h3>
+            </div>
+
+            <div class="col-start-1 row-start-1 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-[#132c1f] rounded-2xl shadow-[0_8px_30px_rgb(26,57,42,0.25)] border border-white/10 flex flex-col justify-start items-start text-left p-4 md:p-6 overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute top-3 right-3 md:top-4 md:right-4 w-7 h-7 md:w-9 md:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white backdrop-blur-md shadow-sm hover:bg-white hover:text-primary transition-all duration-300 z-20">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <div class="flex items-center gap-2 mb-2 md:mb-3 z-10">
+                <div class="p-1.5 md:p-2 bg-white/10 rounded-lg text-white shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h4 class="font-display italic font-bold text-[14px] md:text-[15px] lg:text-[17px] text-white">{t.card6Sub}</h4>
+              </div>
+              <div class="w-full z-10">
+                <p class="text-[12px] md:text-[12px] lg:text-[13px] leading-relaxed text-slate-200 font-light">
+                  {t.card6Desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.rfid-card');
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        const inner = this.querySelector('.flip-inner');
+        if (inner.style.transform === 'rotateY(180deg)') {
+          inner.style.transform = 'rotateY(0deg)';
+        } else {
+          inner.style.transform = 'rotateY(180deg)';
+        }
+      });
+    });
+  });
+</script>

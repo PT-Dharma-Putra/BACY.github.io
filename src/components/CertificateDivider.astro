@@ -1,0 +1,24 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: { title: "Our Certificate" },
+  id: { title: "Sertifikat Kami" }
+}[lang];
+---
+<section class="py-12 bg-background-light">
+  <div class="max-w-7xl mx-auto px-6">
+    <a href="#certificates" class="flex items-center gap-6 group cursor-pointer w-full">
+      <div class="h-px flex-1 bg-primary/20"></div>
+      <h2 class="font-display text-2xl md:text-3xl font-bold text-primary tracking-[0.2em] uppercase">
+        {t.title}
+      </h2>
+      <div class="flex items-center gap-4">
+        <div class="h-px w-24 bg-primary/20"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary transform transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </div>
+    </a>
+  </div>
+</section>

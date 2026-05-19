@@ -1,0 +1,81 @@
+---
+const lang = Astro.currentLocale || 'en';
+
+const t = {
+  en: {
+    title: "Outside Laundry Benefits",
+    benefits: [
+      {
+        title: "REDUCE COST",
+        desc: "Reduces operational costs and washing machine investments in the hospital.",
+        icon: "payments"
+      },
+      {
+        title: "LINEN LIFE",
+        desc: "Extends linen lifespan with proper washing processes.",
+        icon: "eco"
+      },
+      {
+        title: "LINEN QUALITY",
+        desc: "Guarantees sterility and hygiene of linen according to medical standards.",
+        icon: "verified"
+      },
+      {
+        title: "SPACE SAVING",
+        desc: "Space efficiency in the hospital by eliminating the need for an in-house laundry area.",
+        icon: "space_dashboard"
+      }
+    ]
+  },
+  id: {
+    title: "Outside Laundry Benefits",
+    benefits: [
+      {
+        title: "REDUCE COST",
+        desc: "Mengurangi biaya operasional dan investasi mesin cuci di rumah sakit.",
+        icon: "payments"
+      },
+      {
+        title: "LINEN LIFE",
+        desc: "Memperpanjang masa pakai linen dengan proses pencucian yang tepat.",
+        icon: "eco"
+      },
+      {
+        title: "LINEN QUALITY",
+        desc: "Menjamin kesterilan dan kebersihan linen sesuai standar medis.",
+        icon: "verified"
+      },
+      {
+        title: "SPACE SAVING",
+        desc: "Efisiensi ruang di rumah sakit karena tidak perlu area laundry sendiri.",
+        icon: "space_dashboard"
+      }
+    ]
+  }
+}[lang];
+---
+<section class="py-24 bg-background-light">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-primary tracking-[0.2em] uppercase">
+        {t.title}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        t.benefits.map((benefit) => (
+          <div class="arch-card bg-primary p-10 pt-16 flex flex-col items-center text-center group hover:bg-primary-dark transition-colors duration-500 shadow-2xl">
+            <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <span class="material-icons-outlined text-4xl text-white">{benefit.icon}</span>
+            </div>
+            <h3 class="text-white font-bold mb-4 tracking-widest">{benefit.title}</h3>
+            <p class="text-white/70 text-sm leading-relaxed">
+              {benefit.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
