@@ -15,8 +15,22 @@ export async function getWatermarkedDataUrl(src) {
         const img = new Image();
         const logo = new Image();
         
-        img.crossOrigin = "anonymous";
-        logo.crossOrigin = "anonymous";
+        const isCrossOrigin = (url) => {
+            if (!url) return false;
+            if (url.startsWith('/') || url.startsWith('.') || !url.includes('://')) {
+                return false;
+            }
+            try {
+                const urlObj = new URL(url, window.location.origin);
+                return urlObj.origin !== window.location.origin;
+            } catch (e) {
+                return false;
+            }
+        };
+
+        if (isCrossOrigin(src)) {
+            img.crossOrigin = "anonymous";
+        }
         
         let imagesLoaded = 0;
         const totalImages = 2;
@@ -32,6 +46,9 @@ export async function getWatermarkedDataUrl(src) {
             try {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    throw new Error('Canvas 2D context is not supported');
+                }
                 
                 canvas.width = img.width;
                 canvas.height = img.height;
@@ -39,7 +56,7 @@ export async function getWatermarkedDataUrl(src) {
                 // 1. Gambar original
                 ctx.drawImage(img, 0, 0);
                 
-                // 2. Tambahkan Logo PT BACY
+                // 2. Tambahkan Logo PT BACY (tanpa background)
                 const logoScale = 0.15;
                 const logoWidth = canvas.width * logoScale;
                 const logoHeight = (logo.height / logo.width) * logoWidth;
@@ -48,12 +65,10 @@ export async function getWatermarkedDataUrl(src) {
                 const logoX = canvas.width - logoWidth - padding;
                 const logoY = canvas.height - logoHeight - padding;
                 
-                ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
-                ctx.beginPath();
-                ctx.roundRect(logoX - 10, logoY - 10, logoWidth + 20, logoHeight + 20, 10);
-                ctx.fill();
-                
+                ctx.save();
+                ctx.globalAlpha = 0.8; // Membuat logo semi-transparan agar menyatu dengan gambar
                 ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
+                ctx.restore();
                 
                 // 3. Tambahkan Teks Watermark
                 const fontSize = Math.max(img.width * 0.04, 24);
@@ -72,14 +87,21 @@ export async function getWatermarkedDataUrl(src) {
                 watermarkedCache.set(src, result);
                 resolve(result);
             } catch (e) {
+                console.error("Gagal melakukan pemrosesan canvas watermark:", e);
                 reject(e);
             }
         };
 
         img.onload = checkLoaded;
         logo.onload = checkLoaded;
-        img.onerror = () => reject('Gagal memuat gambar proyek');
-        logo.onerror = () => reject('Gagal memuat logo watermark');
+        img.onerror = (err) => {
+            console.error("Gagal memuat gambar proyek:", src, err);
+            reject(new Error(`Gagal memuat gambar proyek: ${src}`));
+        };
+        logo.onerror = (err) => {
+            console.error("Gagal memuat logo watermark: /images/logo_bacy.png", err);
+            reject(new Error("Gagal memuat logo watermark: /images/logo_bacy.png"));
+        };
 
         img.src = src;
         logo.src = "/images/logo_bacy.png";
@@ -96,3 +118,13 @@ export async function preloadWatermark(src) {
         console.warn('Preload watermark gagal untuk:', src);
     }
 }
+
+/**
+ * Mengambil gambar ber-watermark secara sinkron dari cache jika ada
+ * @param {string} src 
+ * @returns {string|undefined}
+ */
+export function getWatermarkedFromCache(src) {
+    return watermarkedCache.get(src);
+}
+

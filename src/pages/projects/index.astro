@@ -66,13 +66,22 @@ const projects = projectsData.map((project) => {
               href={`/projects/${project.slug}`}
               class="group cursor-pointer block"
             >
-              <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden mb-4 relative aspect-[4/3]">
+              <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden mb-4 relative aspect-[4/3] group/card">
                 <img
                   alt={project.title}
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   src={project.image}
                   onerror="this.src='https://placehold.co/800x600?text=Project+Image'"
                 />
+                <!-- Floating Download Button -->
+                <button
+                  class="download-btn absolute top-4 right-4 bg-white/90 hover:bg-primary hover:text-white text-secondary p-2 rounded-full shadow-lg border border-zinc-200/50 backdrop-blur opacity-0 group-hover/card:opacity-100 transition-all duration-300 z-20 flex items-center justify-center cursor-pointer scale-90 hover:scale-100"
+                  data-src={project.image}
+                  data-filename={`${project.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                  title="Download Watermarked Image"
+                >
+                  <span class="material-icons-outlined text-sm">download</span>
+                </button>
                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white translate-y-4 group-hover:translate-y-0 transition-transform">
                   <p class="text-xs font-bold uppercase tracking-wider mb-1 text-primary">
@@ -99,56 +108,51 @@ const projects = projectsData.map((project) => {
 <script>
   import {
     getWatermarkedDataUrl,
+    getWatermarkedFromCache,
     preloadWatermark,
   } from "../../utils/watermark.js";
 
-  function initGhostWatermark() {
-    const images = document.querySelectorAll("main img");
+  // Save/Download Button Logic
+  function setupDownloadButtons() {
+    const downloadBtns = document.querySelectorAll(".download-btn");
+    downloadBtns.forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const src = btn.getAttribute("data-src");
+        const filename = btn.getAttribute("data-filename") || "download.jpg";
+        if (!src) return;
 
-    images.forEach((img) => {
-      if (!(img instanceof HTMLImageElement)) return;
-
-      const originalSrc = img.src;
-      let isWatermarked = false;
-
-      // Preload saat halaman dimuat
-      if (originalSrc && !originalSrc.startsWith("data:")) {
-        preloadWatermark(originalSrc);
-      }
-
-      img.addEventListener("contextmenu", async (e) => {
-        if (isWatermarked || img.src.startsWith("data:")) return;
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = `<span class="material-icons-outlined animate-spin text-[10px]">sync</span>`;
+        btn.setAttribute("disabled", "true");
 
         try {
-          const watermarkedSrc = await getWatermarkedDataUrl(originalSrc);
-          img.src = watermarkedSrc;
-          isWatermarked = true;
-
-          setTimeout(() => {
-            if (isWatermarked && !img.matches(":hover")) {
-              img.src = originalSrc;
-              isWatermarked = false;
-            }
-          }, 3000);
+          const watermarkedSrc = await getWatermarkedDataUrl(src);
+          const link = document.createElement("a");
+          link.href = watermarkedSrc;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         } catch (err) {
-          console.error("Gagal menyiapkan watermark:", err);
-        }
-      });
-
-      img.addEventListener("mouseleave", () => {
-        if (isWatermarked) {
-          img.src = originalSrc;
-          isWatermarked = false;
+          console.error("Gagal mendownload gambar:", err);
+        } finally {
+          btn.innerHTML = originalContent;
+          btn.removeAttribute("disabled");
         }
       });
     });
   }
 
-  window.addEventListener("DOMContentLoaded", initGhostWatermark);
+  window.addEventListener("DOMContentLoaded", () => {
+    setupDownloadButtons();
+  });
   if (
     document.readyState === "complete" ||
     document.readyState === "interactive"
   ) {
-    initGhostWatermark();
+    setupDownloadButtons();
   }
 </script>
