@@ -28,5 +28,140 @@ import "../styles/global.css";
     class="bg-background-light text-slate-800 font-sans selection:bg-primary/30 overflow-x-hidden"
   >
     <slot />
+
+    <script>
+      import {
+        getWatermarkedDataUrl,
+        preloadWatermark,
+      } from "../utils/watermark.js";
+
+      const initGlobalWatermarks = () => {
+        const images = document.querySelectorAll('img');
+        images.forEach((img) => {
+          if (!(img instanceof HTMLImageElement)) return;
+          
+          // Exclude small images (icons, flags, avatars) and the logo itself
+          const src = img.getAttribute('src') || '';
+          if (
+            src.includes('logo') || 
+            src.includes('icon') || 
+            src.includes('flag') || 
+            src.includes('avatar')
+          ) {
+            return;
+          }
+
+          // Also check natural dimensions if loaded
+          const checkDimensions = () => {
+            if (img.naturalWidth > 0 && img.naturalWidth < 150) return false;
+            if (img.naturalHeight > 0 && img.naturalHeight < 150) return false;
+            return true;
+          };
+
+          const setupEvents = () => {
+            if (!checkDimensions()) return;
+
+            const originalSrc = img.getAttribute("data-original-src") || img.src;
+            if (!img.getAttribute("data-original-src")) {
+              img.setAttribute("data-original-src", originalSrc);
+            }
+
+            if (originalSrc && !originalSrc.startsWith("data:")) {
+              preloadWatermark(originalSrc);
+            }
+
+            let restoreTimeout;
+            const restoreOriginal = () => {
+              if (img.src !== originalSrc) {
+                img.src = originalSrc;
+              }
+            };
+
+            const triggerWatermark = async () => {
+              if (img.src.startsWith("data:")) return;
+              try {
+                const watermarked = await getWatermarkedDataUrl(originalSrc);
+                img.src = watermarked;
+              } catch (err) {
+                console.error("Watermark failed on trigger:", err);
+              }
+            };
+
+            // Trigger watermark on hover so it's already swapped by the time they right-click
+            img.addEventListener("mouseenter", () => {
+              clearTimeout(restoreTimeout);
+              triggerWatermark();
+            });
+
+            // Trigger on pointerdown (touch for mobile, right-click backup)
+            img.addEventListener("pointerdown", () => {
+              clearTimeout(restoreTimeout);
+              triggerWatermark();
+            });
+
+            // Restore clean image 5 seconds after mouse leaves (gives time for context menu save)
+            img.addEventListener("mouseleave", () => {
+              clearTimeout(restoreTimeout);
+              restoreTimeout = setTimeout(restoreOriginal, 5000);
+            });
+
+            // Restores clean image instantly if they left-click (normal view)
+            img.addEventListener("click", (e) => {
+              if (e.button === 0) {
+                restoreOriginal();
+              }
+            });
+          };
+
+          if (img.complete) {
+            setupEvents();
+          } else {
+            img.addEventListener('load', setupEvents, { once: true });
+          }
+        });
+      };
+
+      const protectSite = () => {
+        // Prevent right click on everything EXCEPT images
+        document.addEventListener('contextmenu', (e) => {
+          if (e.target instanceof HTMLImageElement) {
+            // Allow right click so browser context menu options work
+            return;
+          }
+          // Block right click on other elements (text, code, background)
+          e.preventDefault();
+        }, { passive: false });
+
+        // Prevent dragging on everything EXCEPT images
+        document.addEventListener('dragstart', (e) => {
+          if (e.target instanceof HTMLImageElement) {
+            // Allow dragging images
+            return;
+          }
+          // Block dragging text/code
+          e.preventDefault();
+        }, { passive: false });
+
+        // Prevent typical copy/inspect shortcut keys (Ctrl+S, Ctrl+U, Ctrl+P, F12)
+        document.addEventListener('keydown', (e) => {
+          if (
+            (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p' || e.key === 'S' || e.key === 'U' || e.key === 'P')) ||
+            e.key === 'F12'
+          ) {
+            e.preventDefault();
+          }
+        });
+      };
+
+      // Run on page load
+      protectSite();
+      initGlobalWatermarks();
+
+      // Run on Astro page transitions
+      document.addEventListener('astro:page-load', () => {
+        protectSite();
+        initGlobalWatermarks();
+      });
+    </script>
   </body>
 </html>

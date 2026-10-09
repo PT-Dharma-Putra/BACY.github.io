@@ -11,7 +11,10 @@ const t = {
     technology: "Technology",
     certificates: "Certificates",
     contact: "Contact Us",
-    reachOut: "Reach Out To Us"
+    reachOut: "Reach Out To Us",
+    rfid: "Integrated RFID",
+    lms: "Laundry Management System",
+    modernMachine: "Modern Machinery"
   },
   id: {
     home: "Beranda",
@@ -20,7 +23,10 @@ const t = {
     technology: "Teknologi",
     certificates: "Sertifikat",
     contact: "Hubungi Kami",
-    reachOut: "Hubungi Kami"
+    reachOut: "Hubungi Kami",
+    rfid: "Terintegrasi RFID",
+    lms: "Laundry Management System",
+    modernMachine: "Mesin Modern"
   }
 }[lang];
 ---
@@ -45,24 +51,64 @@ const t = {
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center gap-10">
-      {
-        [
-          { href: `${basePath}/#home`, text: t.home },
-          { href: `${basePath}/#about`, text: t.about },
-          { href: `${basePath}/#services`, text: t.services },
-          { href: `${basePath}/#rfid-system`, text: t.technology },
-          { href: `${basePath}/#certificates`, text: t.certificates },
-        ].map((item) => (
-          <a
-            href={item.href}
-            target={item.external ? "_blank" : undefined}
-            class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
-          >
-            {item.text}
-            <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
+      <a
+        href={`${basePath}/#home`}
+        class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
+      >
+        {t.home}
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
+      </a>
+      
+      <a
+        href={`${basePath}/#about`}
+        class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
+      >
+        {t.about}
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
+      </a>
+
+      <!-- Technology Dropdown -->
+      <div class="relative group/dropdown py-2">
+        <button 
+          id="tech-dropdown-btn"
+          class="text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] flex items-center gap-1.5 focus:outline-none"
+        >
+          {t.technology}
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform duration-300 group-hover/dropdown:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+          <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover/dropdown:w-full opacity-0 group-hover/dropdown:opacity-100" />
+        </button>
+        <!-- Dropdown Menu -->
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#080e0a] border border-white/10 rounded-xl shadow-2xl py-3 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 transform scale-95 origin-top z-50 backdrop-blur-md">
+          <a href={`${basePath}/#rfid-system`} class="nav-link block px-5 py-2.5 text-xs text-white/80 hover:text-white hover:bg-white/5 transition-colors uppercase tracking-wider font-semibold">
+            {t.rfid}
           </a>
-        ))
-      }
+          <a href={`${basePath}/#lms-process`} class="nav-link block px-5 py-2.5 text-xs text-white/80 hover:text-white hover:bg-white/5 transition-colors uppercase tracking-wider font-semibold">
+            {t.lms}
+          </a>
+          <a href={`${basePath}/#technology-support`} class="nav-link block px-5 py-2.5 text-xs text-white/80 hover:text-white hover:bg-white/5 transition-colors uppercase tracking-wider font-semibold">
+            {t.modernMachine}
+          </a>
+        </div>
+      </div>
+
+      <a
+        href={`${basePath}/#services`}
+        class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
+      >
+        {t.services}
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
+      </a>
+
+
+      <a
+        href={`${basePath}/#certificates`}
+        class="nav-link relative text-[0.8rem] font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.15em] group py-2"
+      >
+        {t.certificates}
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100" />
+      </a>
       
       <!-- Language Switcher Desktop -->
       <div class="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-widest text-white/70 ml-2 border border-white/10 rounded-full px-3 py-1.5 backdrop-blur-sm">
@@ -123,30 +169,92 @@ const t = {
       <!-- Decorative element -->
       <div class="absolute top-0 right-0 w-64 h-64 bg-[#C5A059]/5 rounded-full blur-[80px] pointer-events-none"></div>
       
-      <div class="space-y-8 relative z-10">
-        {
-          [
-            { href: `${basePath}/#home`, text: t.home },
-            { href: `${basePath}/#about`, text: t.about },
-            { href: `${basePath}/#services`, text: t.services },
-            { href: `${basePath}/#rfid-system`, text: t.technology },
-            { href: `${basePath}/#certificates`, text: t.certificates },
-          ].map((item, index) => (
-            <a
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
-              style={`transition-delay: ${index * 75}ms;`}
-            >
-              <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
-                <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
-                  &rarr;
-                </span>
-                {item.text}
+      <div class="space-y-6 relative z-10">
+        <a
+          href={`${basePath}/#home`}
+          class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+          style="transition-delay: 0ms;"
+        >
+          <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
+            <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
+              &rarr;
+            </span>
+            {t.home}
+          </span>
+        </a>
+
+        <a
+          href={`${basePath}/#about`}
+          class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+          style="transition-delay: 75ms;"
+        >
+          <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
+            <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
+              &rarr;
+            </span>
+            {t.about}
+          </span>
+        </a>
+
+        <!-- Mobile Technology Accordion -->
+        <div 
+          class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+          style="transition-delay: 150ms;"
+        >
+          <button 
+            id="mobile-tech-toggle" 
+            class="w-full flex items-center justify-between text-3xl font-display font-light text-white/80 hover:text-white transition-colors focus:outline-none py-1"
+          >
+            <span class="mobile-link-text-container flex items-center gap-4 text-left">
+              <span class="mobile-link-indicator mobile-link-indicator-main text-sm font-normal text-[#C5A059] opacity-0 transition-opacity w-4">
+                &rarr;
               </span>
+              {t.technology}
+            </span>
+            <svg id="mobile-tech-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <!-- Mobile Submenu -->
+          <div id="mobile-tech-submenu" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out pl-8 space-y-4 mt-2">
+            <a href={`${basePath}/#rfid-system`} class="mobile-link mobile-sublink block text-lg font-light text-white/60 hover:text-white transition-colors py-1">
+              {t.rfid}
             </a>
-          ))
-        }
+            <a href={`${basePath}/#lms-process`} class="mobile-link mobile-sublink block text-lg font-light text-white/60 hover:text-white transition-colors py-1">
+              {t.lms}
+            </a>
+            <a href={`${basePath}/#technology-support`} class="mobile-link mobile-sublink block text-lg font-light text-white/60 hover:text-white transition-colors py-1">
+              {t.modernMachine}
+            </a>
+          </div>
+        </div>
+
+        <a
+          href={`${basePath}/#services`}
+          class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+          style="transition-delay: 225ms;"
+        >
+          <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
+            <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
+              &rarr;
+            </span>
+            {t.services}
+          </span>
+        </a>
+
+        <a
+          href={`${basePath}/#certificates`}
+          class="mobile-link block group translate-y-8 opacity-0 transition-all duration-700"
+          style="transition-delay: 300ms;"
+        >
+          <span class="mobile-link-text flex items-center gap-4 text-3xl font-display font-light text-white/80 group-hover:text-white transition-colors">
+            <span class="mobile-link-indicator text-sm font-normal text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity w-4">
+              &rarr;
+            </span>
+            {t.certificates}
+          </span>
+        </a>
       </div>
 
       <div class="pb-10 translate-y-8 opacity-0 transition-all duration-700 delay-[500ms] relative z-10" id="mobile-footer">
@@ -190,6 +298,13 @@ const t = {
       color: white;
     }
     .nav-link.active .nav-indicator {
+      width: 100%;
+      opacity: 1;
+    }
+    #tech-dropdown-btn.active {
+      color: white;
+    }
+    #tech-dropdown-btn.active .nav-indicator {
       width: 100%;
       opacity: 1;
     }
@@ -249,7 +364,39 @@ const t = {
     closeMenu?.addEventListener("click", () => toggleMenu(false));
 
     mobileLinks.forEach((link) => {
+      // Don't close if it is the accordion trigger
+      if (link.id === "mobile-tech-toggle" || link.querySelector('#mobile-tech-toggle')) return;
       link.addEventListener("click", () => toggleMenu(false));
+    });
+
+    // Mobile Accordion Toggle
+    const mobileTechToggle = document.getElementById("mobile-tech-toggle");
+    const mobileTechSubmenu = document.getElementById("mobile-tech-submenu");
+    const mobileTechIcon = document.getElementById("mobile-tech-icon");
+
+    if (mobileTechToggle && mobileTechSubmenu && mobileTechIcon) {
+      mobileTechToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = mobileTechSubmenu.style.maxHeight && mobileTechSubmenu.style.maxHeight !== "0px";
+        if (isOpen) {
+          mobileTechSubmenu.style.maxHeight = "0px";
+          mobileTechIcon.classList.remove("rotate-180");
+        } else {
+          mobileTechSubmenu.style.maxHeight = `${mobileTechSubmenu.scrollHeight}px`;
+          mobileTechIcon.classList.add("rotate-180");
+        }
+      });
+    }
+
+    const mobileSublinks = document.querySelectorAll(".mobile-sublink");
+    mobileSublinks.forEach((sublink) => {
+      sublink.addEventListener("click", () => {
+        toggleMenu(false);
+        if (mobileTechSubmenu && mobileTechIcon) {
+          mobileTechSubmenu.style.maxHeight = "0px";
+          mobileTechIcon.classList.remove("rotate-180");
+        }
+      });
     });
 
     // Active Link Scroll Spy
@@ -270,15 +417,28 @@ const t = {
           
           desktopNavLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `/#${id}`) {
+            const href = link.getAttribute('href');
+            if (href === `/#${id}` || href === `/id/#${id}`) {
               link.classList.add('active');
             }
           });
           
+          // Highlight main nav buttons and drop downs
+          const techSections = ['rfid-system', 'lms-process', 'technology-support'];
+          const techButton = document.querySelector('#tech-dropdown-btn');
+          if (techButton) {
+            if (techSections.includes(id)) {
+              techButton.classList.add('active');
+            } else {
+              techButton.classList.remove('active');
+            }
+          }
+
           mobileNavLinks.forEach(link => {
             const textSpan = link.querySelector('.mobile-link-text');
             const indicator = link.querySelector('.mobile-link-indicator');
-            if (link.getAttribute('href') === `/#${id}`) {
+            const href = link.getAttribute('href');
+            if (href === `/#${id}` || href === `/id/#${id}`) {
               textSpan?.classList.add('text-white');
               textSpan?.classList.remove('text-white/80');
               indicator?.classList.add('opacity-100');
@@ -290,6 +450,21 @@ const t = {
               indicator?.classList.add('opacity-0');
             }
           });
+
+          // Highlight mobile technology toggle if any child section is active
+          const mobileTechToggleText = document.querySelector('#mobile-tech-toggle .mobile-link-text-container');
+          const mobileTechIndicator = document.querySelector('#mobile-tech-toggle .mobile-link-indicator-main');
+          if (techSections.includes(id)) {
+            mobileTechToggleText?.classList.add('text-white');
+            mobileTechToggleText?.classList.remove('text-white/80');
+            mobileTechIndicator?.classList.add('opacity-100');
+            mobileTechIndicator?.classList.remove('opacity-0');
+          } else {
+            mobileTechToggleText?.classList.remove('text-white');
+            mobileTechToggleText?.classList.add('text-white/80');
+            mobileTechIndicator?.classList.remove('opacity-100');
+            mobileTechIndicator?.classList.add('opacity-0');
+          }
         }
       });
     }, observerOptions);
@@ -299,3 +474,4 @@ const t = {
     });
   </script>
 </nav>
+
