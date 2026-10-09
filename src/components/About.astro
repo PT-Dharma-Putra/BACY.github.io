@@ -1,31 +1,36 @@
 ---
-const lang = Astro.currentLocale || 'en';
+const lang = Astro.currentLocale || "en";
 
 const t = {
   en: {
     eyebrow: "About Us",
-    titleHtml: "Dedicated to Patient <span class='text-primary italic'>Hygiene</span> and <span class='text-primary italic'>Safety</span>",
-    p1: "PT BACY was established with a passion to provide the best solutions for linen management in healthcare facilities.",
-    p2: "We understand that clean linen is not just about comfort, but a crucial part of infection prevention and patient safety.",
-    p3: "By adopting international standards and the latest technology, we deliver services that are not only efficient but also guarantee high hygiene standards. Every process is designed to support hospital and clinic operations so they can focus entirely on patient care.",
-    p4: "We are committed to continuous innovation and becoming a trusted partner for the healthcare industry in Indonesia, providing clean, safe, and high-quality linen every day.",
+    titleHtml:
+      "Dedicated to Patient <span class='text-primary italic'>Hygiene</span> and <span class='text-primary italic'>Safety</span>",
+    // p1: "PT BACY is committed to providing reliable linen management solutions for healthcare facilities. By combining international standards with modern technology, we ensure clean, safe, and hygienic linen that supports infection prevention and patient safety. As a trusted partner, we continuously innovate to deliver high-quality services that help hospitals and clinics focus on providing the best patient care.",
+    p1: "PT Bersih Aman Cemerlang Yogyakarta (PT. BACY) is located at Jl. Watugendong RT.01 /RW.15 Candibinangun, Pakem, Kab. Sleman, DI Yogyakarta.",
+    p2: "PT. BACY is part of a group affiliated with PT. Bersih Aman Cemerlang (PT. BAC), located at Babakan RT.01 /RW.06, Cipaganti, Babakan Madang, Sentul, Bogor, West Java.",
+    p3: "BAC Group focuses on hospital laundry services (Linen Solution) based on RFID (Radio frequency Identification) operating with a radio wave system.",
     badgeTitle: "Global Standard",
-    badgeSub: "Guaranteed Quality"
+    badgeSub: "Guaranteed Quality",
   },
   id: {
     eyebrow: "About Us",
-    titleHtml: "Dedikasi untuk <span class='text-primary italic'>Higienitas</span> dan <span class='text-primary italic'>Keselamatan</span> Pasien",
-    p1: "PT BACY didirikan dengan semangat untuk memberikan solusi terbaik bagi pengelolaan linen di fasilitas kesehatan.",
-    p2: "Kami memahami bahwa kebersihan linen bukan sekadar kenyamanan, melainkan bagian krusial dari pencegahan infeksi dan keselamatan pasien.",
-    p3: "Dengan mengadopsi standar internasional dan teknologi terkini, kami menghadirkan layanan yang tidak hanya efisien tetapi juga menjamin higienitas tinggi. Setiap proses kami dirancang untuk mendukung operasional rumah sakit dan klinik agar dapat fokus sepenuhnya pada perawatan pasien.",
-    p4: "Kami berkomitmen untuk terus berinovasi dan menjadi mitra terpercaya bagi dunia kesehatan di Indonesia, menghadirkan linen yang bersih, aman, dan berkualitas tinggi setiap harinya.",
+    titleHtml:
+      "Dedikasi untuk <span class='text-primary italic'>Higienitas</span> dan <span class='text-primary italic'>Keselamatan</span> Pasien",
+    // p1: "PT BACY berkomitmen menyediakan solusi pengelolaan linen yang andal bagi fasilitas kesehatan. Dengan mengadopsi standar internasional dan teknologi modern, kami memastikan linen yang bersih, higienis, dan aman untuk mendukung pencegahan infeksi serta keselamatan pasien. Sebagai mitra terpercaya, kami terus berinovasi dalam menghadirkan layanan berkualitas tinggi agar rumah sakit dan klinik dapat fokus memberikan perawatan terbaik kepada pasien.",
+    p1: "PT Bersih Aman Cemerlang Yogyakarta (PT. BACY) beralamat di Jl. Watugendong RT.01 /RW.15 Candibinangun, Pakem, Kab. Sleman, DI Yogyakarta.",
+    p2: "PT. BACY adalah bagian group yang berafilisasi dengan PT. Bersih Aman Cemerlang (PT. BAC) yang beralamat di Babakan RT.01 /RW.06, Cipaganti, Babakan Madang, Sentul, Bogor, Jabar.",
+    p3: "BAC Group fokus dalam bidang pelayanan laundry Rumah Sakit (Linen Solution) berbasis RFID (Radio frequency Identification) yang bekerja dengan system gelombang radio.",
     badgeTitle: "Standar Global",
-    badgeSub: "Kualitas Terjamin"
-  }
+    badgeSub: "Kualitas Terjamin",
+  },
 }[lang];
 ---
 
-<section id="about" class="py-24 lg:py-32 bg-white overflow-hidden relative border-b border-slate-50">
+<section
+  id="about"
+  class="py-24 lg:py-32 bg-white overflow-hidden relative border-b border-slate-50"
+>
   <!-- Atmospheric Background -->
   <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
     <div
@@ -46,8 +51,13 @@ const t = {
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <!-- Video Container -->
       <div class="relative group w-full">
-        <div class="absolute inset-0 bg-primary/5 rounded-3xl -m-6 transform -rotate-2 transition-transform duration-500 group-hover:rotate-0 z-0"></div>
-        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video lg:aspect-square bg-slate-100">
+        <div
+          class="absolute inset-0 bg-primary/5 rounded-3xl -m-6 transform -rotate-2 transition-transform duration-500 group-hover:rotate-0 z-0"
+        >
+        </div>
+        <div
+          class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video lg:aspect-square bg-slate-100"
+        >
           <video
             src="/images/video.mp4"
             class="w-full h-full object-cover scale-100 hover:scale-105 transition-transform duration-700"
@@ -55,49 +65,58 @@ const t = {
             loop
             muted
             playsinline
-            controls
-          ></video>
+            controls></video>
         </div>
       </div>
 
       <!-- Content -->
       <div class="flex flex-col pl-0 lg:pl-8">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-bold tracking-widest uppercase w-fit mb-6 shadow-sm border border-primary/10">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-bold tracking-widest uppercase w-fit mb-6 shadow-sm border border-primary/10"
+        >
           <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
           {t.eyebrow}
         </div>
-        
+
         <h2
           class="font-display text-4xl md:text-5xl lg:text-5xl font-bold text-slate-900 mb-8 leading-[1.2]"
           set:html={t.titleHtml}
-        >
-        </h2>
+        />
 
-        <div class="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
-          <p class="text-xl text-slate-800 font-medium pl-6 border-l-4 border-primary/40 relative">
+        <div
+          class="space-y-6 text-slate-600 leading-relaxed text-lg font-light animate-fade-in"
+        >
+          <p
+            class="text-xl text-slate-700 font-normal leading-relaxed"
+          >
             {t.p1}
           </p>
-          <p>
+          <p
+            class="text-slate-600 leading-relaxed font-light"
+          >
             {t.p2}
           </p>
-          <p>
+          <p
+            class="text-slate-600 leading-relaxed font-light"
+          >
             {t.p3}
           </p>
-          <p>
-            {t.p4}
-          </p>
         </div>
-        
-        <div class="mt-12 flex items-center gap-6 pt-8 border-t border-slate-100">
-           <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                 <span class="material-icons-outlined text-3xl">verified</span>
-              </div>
-              <div>
-                 <p class="font-bold text-slate-900 text-xl">{t.badgeTitle}</p>
-                 <p class="text-slate-500 text-sm">{t.badgeSub}</p>
-              </div>
-           </div>
+
+        <div
+          class="mt-12 flex items-center gap-6 pt-8 border-t border-slate-100"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+            >
+              <span class="material-icons-outlined text-3xl">verified</span>
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 text-xl">{t.badgeTitle}</p>
+              <p class="text-slate-500 text-sm">{t.badgeSub}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

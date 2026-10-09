@@ -1,0 +1,64 @@
+---
+const lang = Astro.currentLocale || "en";
+
+const t = {
+  en: {
+    eyebrow: "Why BACY?",
+    title: "Leading with Vision & Purpose",
+    text: "At PT BACY, we believe that healthcare linen solutions are not merely about cleanliness, but form the very foundation of patient safety and the future of sustainable healthcare. In alignment with our vision to grow healthily and endure long-term, we are fully committed to building close partnerships powered by advanced laundry technology. By implementing Good Corporate Governance (GCG), optimizing performance efficiency, and preserving our environment, we are here to ensure that hospitals and clinics can focus entirely on providing the best care for their patients.",
+    name: "Fani Dharma Putra",
+    role: "President Director, PT BACY",
+    quote: "Ensuring safety, fostering growth, and honoring sustainability in healthcare."
+  },
+  id: {
+    eyebrow: "Kenapa Harus BACY?",
+    title: "Melangkah dengan Visi & Komitmen",
+    text: "Di PT BACY, kami percaya bahwa solusi linen layanan kesehatan tidak sekadar tentang kebersihan, melainkan fondasi keselamatan pasien dan keberlanjutan masa depan medis. Selaras dengan visi kami untuk tumbuh sehat dan berumur panjang, kami berkomitmen penuh membangun kemitraan erat yang didukung kecanggihan teknologi laundry modern. Dengan menerapkan tata kelola perusahaan yang baik (GCG), mengoptimalkan efisiensi kinerja, serta menjaga kelestarian lingkungan hidup, kami hadir untuk memastikan rumah sakit dan klinik dapat terus berfokus memberikan perawatan terbaik bagi masyarakat.",
+    name: "Fani Dharma Putra",
+    role: "Direktur Utama, PT BACY",
+    quote: "Menjamin keselamatan, memupuk pertumbuhan, dan melestarikan kelestarian lingkungan kesehatan."
+  }
+}[lang];
+---
+
+<section id="owner-prologue" class="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+  <!-- Decorative Background elements -->
+  <div class="absolute inset-0 z-0 opacity-30 pointer-events-none">
+    <div class="absolute left-1/4 top-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(228,34,46,0.08)_0%,transparent_60%)]"></div>
+    <div class="absolute right-1/4 bottom-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08)_0%,transparent_60%)]"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="relative bg-white/80 backdrop-blur-md rounded-3xl border border-slate-100/80 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-8 md:p-16 text-center overflow-hidden">
+      <!-- Decorative quote marks -->
+      <span class="absolute -top-6 left-12 text-[180px] font-serif text-slate-100/80 pointer-events-none select-none leading-none">“</span>
+      <span class="absolute -bottom-24 right-12 text-[180px] font-serif text-slate-100/80 pointer-events-none select-none leading-none">”</span>
+      
+      <div class="relative z-10 flex flex-col items-center">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-sm font-bold tracking-widest uppercase mb-8 shadow-sm border border-primary/10">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          {t.eyebrow}
+        </div>
+
+        <!-- Title -->
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight max-w-3xl">
+          {t.title}
+        </h2>
+
+        <!-- Text -->
+        <p class="text-slate-600 leading-relaxed text-lg md:text-xl font-light mb-10 max-w-3xl">
+          {t.text}
+        </p>
+
+        <!-- Divider Line -->
+        <div class="w-16 h-1 bg-gradient-to-r from-primary/30 to-primary rounded-full mb-10"></div>
+
+        <!-- Highlight Quote -->
+        <p class="italic text-slate-800 font-medium text-xl md:text-2xl max-w-2xl text-center leading-relaxed">
+          "{t.quote}"
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
